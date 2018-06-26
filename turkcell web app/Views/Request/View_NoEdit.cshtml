@@ -1,0 +1,224 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+
+@{
+    ViewBag.Title = Model.Panel0.Title;
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@if (Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.Pending)
+{
+    <div style="text-align: center;color: red;font-size: large;font-weight: bolder;">Waiting For Manager Approval</div>
+}
+
+
+<div>
+    <a class="btn btn-primary btn-block btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" role="button" href="#collapse-1" style="background-color:#175777;width:100%;">Panel 0: General Information of FRD</a>
+    <div id="collapse-1" class="collapse show" style="padding-bottom:30px;">
+        @Html.Partial("~/Views/PartialViews/Panel0/Info_Uneditable.cshtml")
+        @if (Model.Type != turkcell_web_app.ViewModels.Frd.TypesEnum.Pending)
+        {
+            @Html.Partial("~/Views/PartialViews/Panel0/Versions_List.cshtml")
+        }
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" role="button" href="#collapse-2" style="min-width:100%;background-color:#175777;">Panel 1: Request Description</a>
+        <div id="collapse-2" class="collapse show">
+
+            @Html.Partial("~/Views/PartialViews/Panel1/Items_Uneditable.cshtml")
+
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-3" role="button" href="#collapse-3" style="width:100%;background-color:#175777;">Panel 2: &nbsp;Target Audience</a>
+        <div id="collapse-3" class="collapse show" style="background-color:#f9f9f9;">
+            @Html.Partial("~/Views/PartialViews/Panel2/Targets_Uneditable.cshtml")
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" role="button" href="#collapse-4" style="width:100%;background-color:#175777;">Panel 3: Channels Affected by Demand&nbsp;</a>
+        <div id="collapse-4" class="collapse show" style="background-color:#f9f9f9;">
+            @Html.Partial("~/Views/PartialViews/Panel3/Channels_Uneditable.cshtml")
+
+
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" role="button" href="#collapse-5" style="width:100%;background-color:#175777;">Panel 4: SMS</a>
+        <div id="collapse-5" class="collapse show" style="margin-top:15px;">
+            @Html.Partial("~/Views/PartialViews/Panel4/SMS_Table.cshtml")
+            @*<div class="container" style="background-color:#f1f7fc;width:80%;margin-top:15px;margin-bottom:15px;">
+                    <div class="row align-items-center">
+                        <div class="col-5 col-sm-5 col-md-3 col-lg-4 col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Sender:" readonly=""></div>
+                        <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-3 offset-sm-4 offset-md-7 offset-lg-6 offset-xl-4"><button class="btn btn-danger btn-block" type="button"><i class="fa fa-trash" style="font-size:25px;"></i></button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-7 offset-xl-1"><input type="text" style="width:80%;"></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Code:" readonly=""></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 offset-xl-1"><input type="text" style="width:80%;"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (EN):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (TR):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                </div>
+                <div class="container" style="background-color:#f1f7fc;width:80%;margin-top:15px;margin-bottom:15px;">
+                    <div class="row align-items-center">
+                        <div class="col-5 col-sm-5 col-md-3 col-lg-4 col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Sender:" readonly=""></div>
+                        <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-3 offset-sm-4 offset-md-7 offset-lg-6 offset-xl-4"><button class="btn btn-danger btn-block" type="button"><i class="fa fa-trash" style="font-size:25px;"></i></button></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 offset-xl-1 align-self-center">
+                            <div class="form-group"><select required="" style="width:80%;"><option value="">Please select an option</option><option value="">Option 1</option></select></div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Code:" readonly=""></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 offset-xl-1">
+                            <div class="form-group"><select required="" style="width:80%;"><option value="">Please select an option</option><option value="">Option 1</option></select></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (EN):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (TR):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-6" role="button" href="#collapse-6" style="width:100%;background-color:#175777;">Panel 5:&nbsp;Files</a>
+    <div id="collapse-6" class="collapse show" style="margin-bottom:10px;">
+        @Html.Partial("~/Views/PartialViews/Panel5/Files_List.cshtml")
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" role="button" href="#collapse-7" style="width:100%;background-color:#175777;">Panel 6:&nbsp;Prioritization</a>
+    <div id="collapse-7" class="collapse show" style="margin-bottom:10px;">
+        @Html.Partial("~/Views/PartialViews/Panel6/Discounts_Table.cshtml")
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" role="button" href="#collapse-8" style="width:100%;background-color:#175777;">Panel 7: Confirmations</a>
+    <div id="collapse-8" class="collapse show">
+        <div class="colpse collapse show" id="collapse-8">
+            @if (Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.ReceivedManagerPending || Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.Pending || Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.Active)
+            {
+                @Html.Partial("~/Views/PartialViews/Panel7/D_G_UnEditable.cshtml")
+            }
+            else if (Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.Closed || Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.ReceivedUser || Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.ReceivedManagerActive)
+            {
+                @Html.Partial("~/Views/PartialViews/Panel7/Approvals_List.cshtml")
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+@{if (Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.ReceivedManagerPending)
+    {
+        using (Html.BeginForm("ReceivedFrd", "Request", FormMethod.Post))
+        {
+            // @Html.Partial("~/Views/PartialViews/Extra/Update_Note.cshtml")
+
+            @Html.AntiForgeryToken()
+            <input id="FrdId" type="hidden" value="@Model.Panel0.Id" name="Panel0.Id" />
+            <input id="FrdType" type="hidden" name="SubmitType">
+            <input name="Type" type="hidden" value="@Model.Type" />
+            <div class="row justify-content-center" style="margin-top:20px;">
+
+                @Html.Partial("~/Views/PartialViews/Buttons/Approve.cshtml")
+                @Html.Partial("~/Views/PartialViews/Buttons/Reject.cshtml")
+            </div>
+        }
+    }
+
+}
+
+
+
+
+@section scripts{
+    <script src="~/Scripts/moment.js"></script>
+    @if (Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.ReceivedManagerPending)
+    {
+        <script src="~/assets/js/General Form/Approve Button.js"></script>
+        <script src="~/assets/js/General Form/Reject Button.js"></script>
+    }
+    else
+    {
+        <script src="~/assets/js/General Form/Disable Enter.js"></script>
+    }
+    <script src="~/assets/js/General Form/Modal.js"></script>
+    <script src="~/assets/js/React/dist/bundle.js"></script>
+}
+
+
+
+
+@*<div>
+        <ul class="list-group">
+
+            @for (int i = 0; i < Model.Panel7.DistributionGroups.Count; i++)
+            {
+                <li class="list-group-item parent-checkbox">
+                    <div class="form-check">
+                        <input disabled class="form-check-input option" type="checkbox" id="option-@i">
+                        <label class="form-check-label" for="formCheck-@i">
+                            @Model.Panel7.DistributionGroups.ElementAt(i).Name
+                        </label>
+                    </div>
+                    <ul style="list-style:none;">
+
+                        @for (int j = 0; j < Model.Panel7.DistributionGroups.ElementAt(i).Employess.Count; j++)
+                        {
+                            if (Model.Panel7.DistributionGroups[i].Employess[j].Selected == true)
+                            {
+                                <li>
+                                    <label class="mt-2"><input disabled checked="checked" value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name</label>
+
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li>
+                                    <label class="mt-2"><input disabled value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name</label>
+
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>*@
+

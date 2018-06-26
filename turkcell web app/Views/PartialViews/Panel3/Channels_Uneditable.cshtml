@@ -1,0 +1,27 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div class="row no-gutters">
+    <div class="col">
+        <ul class="list-group">
+
+            @for (int i = 0; i < Model.Panel3.Channels.Count; i++)
+            {
+                if (Model.Panel3.Channels[i].Selected == true)
+                {
+                    <li class="list-group-item">
+                        <div class="new-checkbox">
+                        <input class="form-check-input panel3checkboxes" checked="checked" type="checkbox" id="formCheck-@i" name="ChannelsId" value="@Model.Panel3.Channels.ElementAt(i).Id" disabled="disabled">
+                        <label class="form-check-label" for="formCheck-@i">@Model.Panel3.Channels.ElementAt(i).Name</label>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        <div class="new-checkbox"><input class="form-check-input panel3checkboxes" type="checkbox" id="formCheck-@i" name="ChannelsId" value="@Model.Panel3.Channels.ElementAt(i).Id" disabled="disabled"><label class="form-check-label" for="formCheck-@i">@Model.Panel3.Channels.ElementAt(i).Name</label></div>
+                    </li>
+                }
+            }
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div>
+    <div>
+        <div class="row no-gutters justify-content-center align-items-center">
+            <div class="col-md-4 col-lg-4 col-xl-3 offset-xl-0 align-self-center" style="margin-top:10px;"><input class="discount-name" onkeyup="enterPressedDiscount(event)" type="text" placeholder="Discount Name" style="width:100%;"  maxlength="32"><span class="error-message err1" style="display:inline;visibility:hidden;">Please write Name</span></div>
+            <div class="col-md-4 col-lg-4 col-xl-3 offset-md-1 offset-lg-1 offset-xl-1 align-self-center" style="margin-top:10px;"><input class="discount-code" onkeyup="enterPressedDiscount(event)" type="text" placeholder="Discount Code" style="width:100%;" maxlength="32"><span class="error-message err2" style="display:inline;visibility:hidden;">Please write Code</span></div>
+        </div>
+    </div>
+    <div style="margin-top:10px;">
+        <div class="row no-gutters justify-content-center align-items-center">
+            <div class="col-md-3 col-lg-2 col-xl-2"><button class="btn btn-primary btn-block add-discount" type="button" style="color:#ffd400;background-color:#184e8e;">Add</button></div>
+        </div>
+    </div>
+    <div style="margin-top:10px;">
+        <section id="prioritization-list-cont" class="_todo-list">
+            <ul class="list-group _to-do-list-group sortable add-discount-place" id="tags-list">
+
+
+                @{
+                    if (Model.Panel6 != null && Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.Saved)
+                    {
+                        for (int i = 0; i < Model.Panel6.DiscountItems.Count; i++)
+                        {
+                            <li class="list-group-item _task">
+                                <input class="panel6-name" type="hidden" value="@Model.Panel6.DiscountItems[i].DiscountName" />
+                                <input class="panel6-code" type="hidden" value="@Model.Panel6.DiscountItems[i].DiscountCode" />
+                                <div class="row">
+                                    <div class="col align-self-center">
+                                        <span class="_todo-text">Discount Name: @Model.Panel6.DiscountItems[i].DiscountName</span>
+                                    </div> 
+                                    <div class="col align-self-center">
+                                        <span class="_todo-text">Discount Code: @Model.Panel6.DiscountItems[i].DiscountCode </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="btn-group pull-right _task-controls" role="group">
+                                            <button class="removeButtonDiscount btn btn-light _todo-remove" type="button" data-task-control="remove"> <i class="fa fa-trash" style="font-size:24px;"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                        }
+                    }
+                }
+
+                @*here the discounts are rendered uisng javascript*@
+            </ul>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model turkcell_web_app.ViewModels.NoFRD
+
+@{ ViewBag.Title = @Model.Heading;}
+@{ switch (Model.Page) {
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.Active:
+            ViewBag.Active = "Selected-Item";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.ClosedAll:
+            ViewBag.ClosedAll = "Selected-Sub-Item";
+            ViewBag.ClosedMenu = "show";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.ClosedMe:
+            ViewBag.ClosedMe = "Selected-Sub-Item";
+            ViewBag.ClosedMenu = "show";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.ClosedOthers:
+            ViewBag.ClosedOthers = "Selected-Sub-Item";
+            ViewBag.ClosedMenu = "show";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.Home:
+            ViewBag.Home = "Selected-Item";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.ManagerBoard:
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.Pending:
+            ViewBag.Pending = "Selected-Item";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.ReceivedM:
+            ViewBag.ReceivedM = "Selected-Sub-Item";
+            ViewBag.ReceivedMenu = "show";
+            break;
+        case turkcell_web_app.ViewModels.NoFRD.menuitem.ReceivedU:
+            ViewBag.ReceivedU = "Selected-Sub-Item";
+            ViewBag.ReceivedMenu = "show";
+
+            break;
+
+    }
+    Layout = "~/Views/Shared/Layout.cshtml";
+    }
+
+
+
+<div>
+    <div class="row justify-content-center" style="margin-top:50px;">
+        <div class="col-lg-12 col-xl-12">
+            <h1>@Model.Heading</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top:75px;">
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-8" style="flex:auto;max-width:max-content;">
+            <p class="lead text-center" style="margin-bottom:2px;">@Model.PrimaryParagraph<br></p>
+            <p class="lead text-center" style="margin-bottom:40px;margin-top:1px;">@Model.SecondaryParagraph<br></p>
+            <p style="margin-top:10px;margin-bottom:40px;">@Model.LastParagraph</p><div class="link-container">
+                <a href="~/@Model.ButtonLink" class="more-link">@Model.ButtonText</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section styles1{
+    <link href="~/assets/css/SuccessPage.css" rel="stylesheet" />
+}

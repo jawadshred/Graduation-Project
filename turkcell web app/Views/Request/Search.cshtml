@@ -1,0 +1,80 @@
+﻿@model turkcell_web_app.ViewModels.SearchResult
+@{
+    ViewBag.Title = "Search Results";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+
+<div class="container">
+    <h1 class="search-result-heading"><span>"@Model.Searched"</span>&nbsp;Search Results</h1>
+    @if (Model.List.Count > 0)
+    {
+        foreach (var Sitem in Model.List)
+        {<div class="card">
+                <a class="my-frd-search-link" href="@Url.Action("SearchedFrd","Request",new { FrdId=@Sitem.FrdId})">
+                    <div class="card-header" id="frd-search-card-header">
+                        <div class="row align-items-center">
+                            <div class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 align-self-center">
+                                <h4 class="search-result-frd-id">FRD ID:<span id="frd-id-search-head">@Sitem.FrdId </span></h4>
+                            </div>
+                            <div class="col-12 col-sm-8 col-md-9 col-lg-10 align-self-center">
+                                <h4 class="search-result-frd-title">FRD title:<span id="frd-title-search-head">@Sitem.Title</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body">
+                    <div class="row justify-content-center align-items-center">
+                        @if (Sitem.V_List.Count > 0)
+                        {
+
+                            <div class="col-xl-12 align-self-center">
+                                <h1 class="frd-search-version-head">Version:</h1>
+                                <div class="list-group">
+                                    @foreach (var version in Sitem.V_List)
+                                    {
+                                        <a class="list-group-item list-group-item-action" id="frd-search-v-item" href="@Url.Action("SearchedFrd","Request",new { FrdId=@Sitem.FrdId,V=@version.Version})">
+                                            <div class="row">
+                                                <div class="col-6 col-sm-8 col-md-6 col-xl-6 align-self-center">
+                                                    <p class="text-truncate" id="frd-search-v-notes"><span>Notes:&nbsp;</span>@version.Note</p>
+                                                </div>
+                                                <div class="col-6 col-sm-4 col-md-6" id="frd-search-version-list"><span>Version:&nbsp;</span><span>@version.Version</span></div>
+                                            </div>
+                                        </a>}
+                                </div>
+                            </div>
+
+
+                        }
+                        @if (Sitem.I_List.Count > 0)
+                        {
+
+                            <div class="col" style="margin-top:10px;">
+                                <h1 class="frd-search-version-head">Items:</h1>
+                                <div class="list-group">
+                                    @foreach (var item in Sitem.I_List)
+                                    {
+                                        <a class="list-group-item list-group-item-action" id="frd-search-item-item" href="@Url.Action("SearchedFrd","Request",new { FrdId=@Sitem.FrdId,V=@item.Version})">
+                                            <div class="row">
+                                                <div class="col-6 col-sm-8 col-md-6">
+                                                    <p class="text-truncate" id="frd-search-item-notes"><span>Notes:&nbsp;</span>@item.ItemText</p>
+                                                </div>
+                                                <div class="col" id="frd-search-version-list"><span>Version:&nbsp;</span><span>@item.Version</span></div>
+                                            </div>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+

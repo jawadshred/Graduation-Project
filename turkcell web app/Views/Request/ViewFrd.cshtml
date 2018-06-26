@@ -1,0 +1,461 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+
+@{
+    ViewBag.Title = "ViewFrd";
+    Layout = "~/Views/Shared/LayoutForView.cshtml";
+}
+<div>
+    <input type="hidden" value="@Model.Panel0.Id" name="Panel0.Id" />
+    <a class="btn btn-primary btn-block btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" role="button" href="#collapse-1" style="background-color:#175777;width:100%;">Panel 0: General Information of FRD</a>
+    <div id="collapse-1" class="collapse show" style="padding-bottom:30px;">
+        <div class="row no-gutters" style="background-color:#f9f9f9;">
+            <div class="col">
+                <div class="table-responsive table-bordered">
+                    <table class="table table-striped table-bordered table-hover">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p class="text-left" style="width:100%;">Request Number</p>
+                                </td>
+                                <td><input class="form-control-plaintext" type="text" value='@Model.Panel0.Id' readonly="" style="width:100%;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="text-left" style="width:100%;">Request Name</p>
+                                </td>
+                                <td><input class="form-control-plaintext" type="text" value='@Model.Panel0.Title' readonly="" style="width:100%;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="text-left" style="width:100%;">Request Owner</p>
+                                </td>
+                                <td><input class="form-control-plaintext" type="text" value='@Model.Panel0.Versions[0].ReviserInfo.Name' readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @{
+                                        //var biggestIndex = 0;
+                                        //for (int i = 0; i < Model.Panel0.Versions.Count; i++)
+                                        //{
+                                        //    //biggest = Model.Panel0.Versions[i].Number > biggest?Model.Panel0.Versions[i].Number : biggest;
+
+                                        //    if(Model.Panel0.Versions[i].Number > biggest)
+                                        //    {
+                                        //        biggestIndex = i;
+                                        //    }
+
+
+                                        //}
+
+                                    }
+                                    <p class="text-left" style="width:100%;">Version Number</p>
+                                </td>
+
+                                <td><input class="form-control-plaintext" type="text" value='V.@Model.Panel0.Versions[Model.Panel0.Versions.Count - 1].Number' readonly="" style="width:100%;"></td>
+                            </tr>
+                            <tr>
+                                <td>Last Edited By:</td>
+                                <td><input class="form-control-plaintext" type="text" value='@Model.Panel0.Versions[Model.Panel0.Versions.Count - 1].ReviserInfo.Name' readonly="" style="width:100%;"></td>
+                            </tr>
+                            <tr>
+                                <td>Version note:</td>
+                                <td><input class="form-control-plaintext" type="text" value='@Model.Panel0.Versions[Model.Panel0.Versions.Count - 1].Details' readonly="" style="width:100%;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="background-color:#ccdffa;">
+            <div style="margin-top:30px;">
+                <div class="row no-gutters">
+                    <div class="col-1 col-md-2 col-xl-1 align-self-center"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Version" readonly="" style="font-size:20px;"></div>
+                    <div class="col-3 col-md-2 col-xl-2 offset-xl-0"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Date" readonly="" style="font-size:20px;"></div>
+                    <div class="col-4 col-md-3 col-xl-3"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Editor" readonly="" style="font-size:20px;"></div>
+                    <div class="col-5 col-md-5 col-xl-6"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Note" readonly="" style="font-size:20px;"></div>
+                </div>
+            </div>
+            <div>
+                <ul class="list-group sortable">
+                    @{
+                        for (int i = 0; i < Model.Panel0.Versions.Count; i++)
+                        {
+
+
+                            <li class="list-group-item">
+
+                                <div class="row justify-content-center align-items-center myBox">
+                                    <div class="col-1 col-md-2 col-xl-1"><input class="form-control-plaintext text-center" type="text" value='V @Model.Panel0.Versions[i].Number' readonly=""></div>
+                                    <div class="col-3 col-md-2 col-xl-2"><input class="form-control-plaintext text-center" type="text" value='@Model.Panel0.Versions[i].Date' readonly=""></div>
+                                    <div class="col-3 col-md-3 col-xl-3"><input class="form-control-plaintext text-center" type="text" value='@Model.Panel0.Versions[i].ReviserInfo.Name' readonly=""></div>
+                                    <div class="col-5 col-md-5 col-xl-6 align-self-center"><input class="form-control-plaintext text-center" type="text" value='@Model.Panel0.Versions[i].Details' readonly=""></div>
+                                </div>
+                            </li>
+
+                        }
+
+
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" role="button" href="#collapse-2" style="min-width:100%;background-color:#175777;">Panel 1: Request Description</a>
+        <div id="collapse-2" class="collapse show">
+            <div class="row no-gutters" style="margin-bottom:30px;margin-top:30px;background-color:#f9f9f9;">
+                <div class="col align-self-center">
+                    @*list-group*@
+                    <ul class="list-group _to-do-list-group sortable" id="task-list">
+                        @{
+                            for (int i = 0; i < Model.Panel1.Items.Count; i++)
+                            {
+
+
+                                <li class="list-group-item _task" style="background-color:transparent;">
+                                    <span class="_item-text">@Model.Panel1.Items[i].Content</span>
+                                    <input type="hidden" value="@Model.Panel1.Items[i].ItemId" name="Panel1.Items[@i].ItemId" />
+                                    <div class="clearfix">
+                                        <div class="row no-gutters align-items-center">
+
+                                            <div class="col-md-2 col-lg-1 offset-xl-0 align-self-center"><input class="form-control-plaintext" type="text" value='Version: V.@Model.Panel1.Items[i].VersionNo' readonly="" style="font-size:16px;color:#2fa2b5;"></div>
+                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 offset-xl-1 align-self-center" style="width:150px;"><input class="form-control-plaintext" type="text" value='Date: @Model.Panel1.Items[i].Date' readonly="" style="font-size:16px;color:#2fa2b5;letter-spacing:2px;width:250px;"></div>
+                                            <div class="col-auto col-md-2 col-lg-2 col-xl-1 offset-md-4 offset-lg-4 offset-xl-3 align-self-center"><button class="btn btn-light btn-sm" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapse--@i" onclick="expandComments(@i)" role="button" href="#collapse--@i" style="font-size:16px;">Comments &nbsp;<i class="fa fa-angle-double-down" id="icon--@i" style="font-size:18px;"></i></button></div>
+                                        </div>
+                                        <div class="row justify-content-center" style="max-height:100%;">
+                                            <div class="col-lg-8 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0 collapse" id="collapse--@i" style="max-width:613px;">
+                                                <div class="card">
+                                                    <div class="card-body" style="height:100%;">
+                                                        <ul class="list-group list-comments-@i">
+                                                            @{
+
+                                                                if (Model.Panel1.Items[i].Comments.Count <= 0)
+                                                                {
+                                                                    <li class="list-group-item" style="margin-bottom:6px;">No Comments available</li>
+                                                                }
+                                                                else
+                                                                {
+
+                                                                    for (int j = 0; j < Model.Panel1.Items[i].Comments.Count; j++)
+                                                                    {
+                                                                        <li class="list-group-item" style="margin-bottom:6px;">
+                                                                            <div class="media">
+                                                                                <div></div>
+                                                                                <div class="media-body">
+                                                                                    <div class="media" style="overflow:visible;">
+                                                                                        <div style="margin-right:10px;"><i class="fa fa-user" style="font-size:16px;"></i></div>
+                                                                                        <div class="media-body" style="overflow:visible;">
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-12">
+                                                                                                    <p>
+                                                                                                        <a href="#">@Model.Panel1.Items[i].Comments[j].Commentor.Name: </a>@Model.Panel1.Items[i].Comments[j].Content<br>
+                                                                                                        <small class="text-muted">@Model.Panel1.Items[i].Comments[j].Date</small>
+                                                                                                    </p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    }
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            }
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-3" role="button" href="#collapse-3" style="width:100%;background-color:#175777;">Panel 2: &nbsp;Target Audience</a>
+        <div id="collapse-3" class="collapse show" style="background-color:#f9f9f9;">
+            <div class="row no-gutters">
+                <div class="col">
+                    <ul class="list-group">
+
+                        @for (int i = 0; i < Model.Panel2.Targets.Count; i++)
+                        {
+
+                            if (Model.Panel2.Targets[i].Selected == true)
+                            {
+                                <li class="list-group-item ">
+                                    <span></span>
+                                    <div class="form-check">
+
+                                        <input class="form-check-input panel2checkboxes" type="checkbox" checked="checked" name="TargetsId" value="@Model.Panel2.Targets.ElementAt(i).Id" id="targetCheck-@i" disabled="disabled">
+                                        <label class="form-check-label" for="targetCheck-@i">@Model.Panel2.Targets.ElementAt(i).Name</label>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="list-group-item ">
+                                    <span></span>
+                                    <div class="form-check">
+                                        <input class="form-check-input panel2checkboxes" type="checkbox" name="TargetsId" value="@Model.Panel2.Targets.ElementAt(i).Id" id="targetCheck-@i" disabled="disabled">
+                                        <label class="form-check-label" for="targetCheck-@i">@Model.Panel2.Targets.ElementAt(i).Name</label>
+                                    </div>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" role="button" href="#collapse-4" style="width:100%;background-color:#175777;">Panel 3: Channels Affected by Demand&nbsp;</a>
+        <div id="collapse-4" class="collapse show" style="background-color:#f9f9f9;">
+            <div>
+                <ul class="list-group">
+
+                    @for (int i = 0; i < Model.Panel3.Channels.Count; i++)
+                    {
+                        if (Model.Panel3.Channels[i].Selected == true)
+                        {
+                            <li class="list-group-item">
+                                <span></span>
+                                <div class="form-check"><input class="form-check-input panel3checkboxes" checked="checked" type="checkbox" id="formCheck-@i" name="ChannelsId" value="@Model.Panel3.Channels.ElementAt(i).Id" disabled="disabled"><label class="form-check-label" for="formCheck-@i">@Model.Panel3.Channels.ElementAt(i).Name</label></div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item">
+                                <span></span>
+                                <div class="form-check"><input class="form-check-input panel3checkboxes" type="checkbox" id="formCheck-@i" name="ChannelsId" value="@Model.Panel3.Channels.ElementAt(i).Id" disabled="disabled"><label class="form-check-label" for="formCheck-@i">@Model.Panel3.Channels.ElementAt(i).Name</label></div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" role="button" href="#collapse-5" style="width:100%;background-color:#175777;">Panel 4: SMS</a>
+        <div id="collapse-5" class="collapse show"
+             style="margin-top:15px;">
+            <div>
+                <div>
+                    @{
+                        if (Model.Panel4.SMS.Count == 0)
+                        {
+                            <p>The user has not entered any SMS content for the frd</p>
+                        }
+                        else
+                        {
+                            <div class="table-responsive table-bordered" style="margin-bottom:15px;">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Sender</th>
+                                            <th class="text-center">Code</th>
+                                            <th class="text-center">Content (Turkish)</th>
+                                            <th class="text-center">Content (English)</th>
+                                            <th class="text-center">User</th>
+                                            <th class="text-center">Date</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @for (int i = 0; i < Model.Panel4.SMS.Count; i++)
+                                        {
+                                            <tr>
+                                                <td style="width:10%;">@Model.Panel4.SMS[i].Sender</td>
+                                                <td style="width:10%;">@Model.Panel4.SMS[i].Code</td>
+                                                <td style="width:30%;">@Model.Panel4.SMS[i].TrContent</td>
+                                                <td style="width:30%;">@Model.Panel4.SMS[i].EnContent</td>
+                                                <td style="max-width:120px;width:10%;">@Model.Panel0.Versions.Find(x => x.Number == Model.Panel4.SMS[i].Version).ReviserInfo.Name</td>
+                                                <td style="width:10%;max-width:120px;">@Model.Panel0.Versions.Find(x => x.Number == Model.Panel4.SMS[i].Version).Date.ToShortDateString()</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+            @*<div class="container" style="background-color:#f1f7fc;width:80%;margin-top:15px;margin-bottom:15px;">
+                    <div class="row align-items-center">
+                        <div class="col-5 col-sm-5 col-md-3 col-lg-4 col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Sender:" readonly=""></div>
+                        <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-3 offset-sm-4 offset-md-7 offset-lg-6 offset-xl-4"><button class="btn btn-danger btn-block" type="button"><i class="fa fa-trash" style="font-size:25px;"></i></button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-7 offset-xl-1"><input type="text" style="width:80%;"></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Code:" readonly=""></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 offset-xl-1"><input type="text" style="width:80%;"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (EN):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (TR):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                </div>
+                <div class="container" style="background-color:#f1f7fc;width:80%;margin-top:15px;margin-bottom:15px;">
+                    <div class="row align-items-center">
+                        <div class="col-5 col-sm-5 col-md-3 col-lg-4 col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Sender:" readonly=""></div>
+                        <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-3 offset-sm-4 offset-md-7 offset-lg-6 offset-xl-4"><button class="btn btn-danger btn-block" type="button"><i class="fa fa-trash" style="font-size:25px;"></i></button></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 offset-xl-1 align-self-center">
+                            <div class="form-group"><select required="" style="width:80%;"><option value="">Please select an option</option><option value="">Option 1</option></select></div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Code:" readonly=""></div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-7 offset-xl-1">
+                            <div class="form-group"><select required="" style="width:80%;"><option value="">Please select an option</option><option value="">Option 1</option></select></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (EN):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 offset-xl-1"><input class="form-control-plaintext" type="text" value="Content (TR):" readonly=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-11 offset-xl-1"><textarea wrap="hard" maxlength="250" style="width:80%;min-height:75px;"></textarea></div>
+                        <div class="col-3 col-sm-2 col-md-1 col-xl-1 offset-7 offset-sm-8 offset-md-8 offset-lg-8 offset-xl-9"><small class="form-text text-muted">0/250</small></div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" role="button" href="#collapse-7" style="width:100%;background-color:#175777;">Panel 6:&nbsp;Prioritization</a>
+    <div id="collapse-7" class="collapse show" style="margin-bottom:10px;">
+        <div>
+            @{
+                if (Model.Panel6.DiscountItems.Count == 0)
+                {
+                    <p>user did not enter values for this frd</p>
+                }
+                else
+                {
+
+
+                    <section id="prioritization-list-cont" class="_todo-list">
+                        <ul class="list-group _to-do-list-group sortable">
+
+                            @for (int i = 0; i < Model.Panel6.DiscountItems.Count; i++)
+                            {
+                                <li class="list-group-item _task">
+                                    <div class="row">
+                                        <div class="col align-self-center"><span class="_todo-text">Discount Name: @Model.Panel6.DiscountItems[i].DiscountName</span></div>
+                                        <div class="col align-self-center"><span class="_todo-text">Discount Code: @Model.Panel6.DiscountItems[i].DiscountCode</span></div>
+                                        <div class="col">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                            }
+
+                        </ul>
+                    </section>
+                }
+            }
+        </div>
+        <div style="margin-top:10px;">
+            <section id="prioritization-list-cont" class="_todo-list">
+                <ul class="list-group _to-do-list-group sortable add-discount-place" id="tags-list">
+                    @*here the discounts are rendered uisng javascript*@
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" role="button" href="#collapse-8" style="width:100%;background-color:#175777;">Panel 7: Confirmations</a>
+    <div id="collapse-8" class="collapse show">
+        <div>
+            <ul class="list-group">
+
+                @for (int i = 0; i < Model.Panel7.DistributionGroups.Count; i++)
+                {
+                    <li class="list-group-item parent-checkbox">
+                        <div class="form-check">
+                            @*<input disabled class="form-check-input option" type="checkbox" id="option-@i">*@
+                            <label class="form-check-label" for="formCheck-@i">
+                                @Model.Panel7.DistributionGroups.ElementAt(i).Name
+                            </label>
+                        </div>
+                        <ul style="list-style:none;">
+
+                            @for (int j = 0; j < Model.Panel7.DistributionGroups.ElementAt(i).Employess.Count; j++)
+                            {
+                                if (Model.Panel7.DistributionGroups[i].Employess[j].Selected == true)
+                                {
+                                    <li>
+                                        <label class="mt-2"><input disabled checked="checked" value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name</label>
+
+                                    </li>
+
+                                }
+                                else
+                                {
+                                    <li>
+                                        <label class="mt-2"><input disabled value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name</label>
+
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/assets/js/General Form/Disable Enter.js"></script>
+    <script src="~/assets/js/Panel 1/Comment.js"></script>
+
+
+    <script src="~/assets/js/viewFrdScript.js"></script>
+    <script src="~/assets/js/React/dist/bundle.js"></script>
+}
+
+
+
+
+

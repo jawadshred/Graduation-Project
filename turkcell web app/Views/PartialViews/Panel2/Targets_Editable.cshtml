@@ -1,0 +1,38 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div class="row no-gutters">
+    <div class="col">
+        <ul class="list-group">
+
+            @for (int i = 0; i < Model.Panel2.Targets.Count; i++)
+            {
+                if (Model.Panel2.Targets[i].Selected == true)
+                {
+
+
+
+                    <li class="list-group-item">
+                        <div class="new-checkbox">
+                            <input type="hidden" /> 
+                            <input type="hidden" value="@Model.Panel2.Targets.ElementAt(i).Code" />
+                            <input checked="checked" class="form-check-input panel2checkboxes" type="checkbox" name="checkbox" value="@Model.Panel2.Targets.ElementAt(i).Name" id="targetCheck-@i" />
+                            <label class ="form-check-label" for="targetCheck-@i">@Model.Panel2.Targets.ElementAt(i).Name</label>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        
+                        <div class="new-checkbox">
+                            <input type="hidden" /> 
+                            <input type="hidden" value="@Model.Panel2.Targets.ElementAt(i).Code" />
+                            <input class="form-check-input panel2checkboxes" type="checkbox"  name="checkbox" value="@Model.Panel2.Targets.ElementAt(i).Name" id="targetCheck-@i" />
+                            <label for="targetCheck-@i">@Model.Panel2.Targets.ElementAt(i).Name</label>
+                        </div>
+                    </li>
+                }
+            }
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,154 @@
+﻿@model turkcell_web_app.ViewModels.Credentials
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please LogIn</title>
+    <link rel='shortcut icon' type='image/x-icon' href='~/assets/img/icon.ico' />
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/Drag--Drop-Upload-Form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form.css">
+    <link rel="stylesheet" href="~/assets/css/simple-sidebar.css">
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    <link rel="stylesheet" href="~/assets/css/to-do-list.css">
+    <link rel="stylesheet" href="~/assets/css/validation.css" />
+
+</head>
+<body id="login-page-body">
+    @*<div class="header" style="background-color:#0b1b31;">
+            <div class="container" style="height:100%;">
+                <div class="row justify-content-center align-items-center" style="height:100%;">
+                    <div class="col-9 col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                     <img src="~/assets/img/logo transparent copy.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login-clean" style="height:70vh;background-color:#f1f7fc;">*@
+
+    <header id="login-page-header">
+        <div id="login-img-container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-8 col-sm-6 col-md-5 col-lg-3 col-xl-3 offset-xl-0 align-self-center" id="img-col-login"><img src="~/assets/img/sprite-common.png" id="logo-login-page"></div>
+            </div>
+        </div>
+    </header>
+    @using (Html.BeginForm("Login", "Authentication", FormMethod.Post))
+    {
+        <div class="login-card">
+            <img src="~/assets/img/Turkcell-Yeni-Amblem.png" class="login-img-card">
+            <p class="profile-name-card"> </p>
+            <form class="form-signin">
+                <span class="reauth-email"> </span>
+                @*<input class="form-control" type="email" required="" placeholder="Email address" autofocus="" id="inputEmail">*@
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control Login-Email-box", type = "email", placeholder = "Email address", name = "email" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "error-message" })
+                @*<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword">*@
+                @Html.TextBoxFor(m => m.Pass, new { @class = "form-control", type = "password", placeholder = "Password", name = "password" })
+                @Html.ValidationMessageFor(m => m.Pass, null, new { @class = "error-message" })
+
+                <div style="color:rgb(255,0,0)">
+                    @ViewBag.error
+                </div>
+
+                @Html.AntiForgeryToken()
+                <div class="checkbox" style="visibility:hidden;">
+                    <div class="form-check" id="remember-me-login"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2" id="remember-login">Remember me</label></div>
+                </div>
+                <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit" id="login-main-btn">Sign in</button>
+            </form><a href="" id="forgot" class="forgot-password">Forgot your password?</a>
+        </div>
+    }
+    <footer id="login-page-footer" class="footer">
+        <div>
+            <div class="row justify-content-center">
+                <div class="col-xl-3"><span id="copyright-login-page">© 2018 Copyright:&nbsp;<a href="http://www.kktcell.com" id="login-cpy-link">kktcell.com</a></span></div>
+            </div>
+        </div>
+    </footer>
+
+    @*@using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { style = "background-color:#175777;" }))
+        {
+
+
+
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img src="~/assets/img/logo gradient.png" style="width:75%;"></div>
+
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Email", name = "email" })
+            </div>
+            @Html.ValidationMessageFor(m => m.Email, null, new { @class = "error-message" })
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Pass, new { @class = "form-control", type = "password", placeholder = "Password", name = "password" })
+            </div>
+            @Html.ValidationMessageFor(m => m.Pass, null, new { @class = "error-message" })
+
+
+            <div style="color:rgb(255,0,0)">
+                @ViewBag.error
+            </div>
+            @Html.AntiForgeryToken();
+
+            <div class="form-group">
+                <button class="btn btn-outline-primary btn-block pulse animated" type="submit" style="background-color:#ffd400;color:#0b1b31;">Log In</button>
+            </div>
+            //id = "test123"
+
+
+            <a href="#" class="forgot" style="color:#ccdffa;">
+                Forgot your email or password?
+            </a>
+
+        }
+        </div>*@
+
+    @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        contact your system administrator directly to restore your email or password
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="col bottom" style="background-color:#0b1b31;">
+            <p class="text-center" style="color:#ccdffa;">© 2018 Kuzey Kıbrıs Turkcell</p>
+        </div>*@
+
+
+    @*<script src="~/assets/js/script.min.js"></script>*@
+    <script src="~/assets/js/LoginPagejs.js"></script>
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+
+<section>
+
+    @{
+        foreach (var group in Model.Panel7.DistributionGroups)
+        {
+            <h3 id="conf_h3">@group.Name</h3>
+            <ul class="list-group" id="conf_list">
+                @foreach (var member in group.Employess)
+                {
+                    switch (member.Status)
+                    {
+                        case turkcell_web_app.Models.Panels.Classes.Confirmation.Status_Enum.Approved:
+                            <li class="list-group-item" >
+                                <span></span>
+                                <div class="row" style="cursor: default;">
+                                    <div class="col-7 col-sm-9"><input class="form-control-plaintext" type="text" value="@member.Name @member.Surname" readonly=""></div>
+                                    <div class="col-5 col-sm-3 col-md-3"><input class="form-control-plaintext" type="text" value="Approved" readonly="" id="conf_approved" data-toggle="tooltip" title="Request approved on [@member.LastUpdate]"></div>
+                                </div>
+                            </li>
+                            break;
+                        case turkcell_web_app.Models.Panels.Classes.Confirmation.Status_Enum.Rejected:
+                            <li class="list-group-item" >
+                                <span></span>
+                                <div class="row" style="cursor: default;">
+                                    <div class="col-7 col-sm-9"><input class="form-control-plaintext" type="text" value="@member.Name @member.Surname" readonly=""></div>
+                                    <div class="col-5 col-sm-3 col-md-3"><input class="form-control-plaintext" type="text" value="Rejected" readonly="" id="conf_reject" data-toggle="tooltip" title="Request rejected on [@member.LastUpdate]"></div>
+                                </div>
+                            </li>
+                            break;
+                        case turkcell_web_app.Models.Panels.Classes.Confirmation.Status_Enum.Waiting:
+                            <li class="list-group-item">
+                                <span></span>
+                                <div class="row" style="cursor: default;">
+                                    <div class="col-7 col-sm-9"><input class="form-control-plaintext" type="text" value="@member.Name @member.Surname" readonly=""></div>
+                                    <div class="col-5 col-sm-3 col-md-3"><input class="form-control-plaintext" type="text" value="Waiting" readonly="" id="conf_pending" data-toggle="tooltip" title="Request waiting for approval."></div>
+                                </div>
+                            </li>
+                            break;
+
+                    }
+                    
+                }
+            </ul>
+        }
+
+    }
+
+</section>

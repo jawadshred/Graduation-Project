@@ -1,0 +1,92 @@
+﻿@using System.Web.Optimization.React;
+@model turkcell_web_app.ViewModels.Frd
+
+@{
+    ViewBag.Title = "KKTCELL | " + Model.Panel0.Title;
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="container-fluid">
+    @using (Html.BeginForm("ReceivedFrd", "Request", FormMethod.Post))
+    {
+
+        <div>
+            <a class="btn btn-primary btn-block btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" role="button" href="#collapse-1" style="background-color:#175777;width:100%;">Panel 0: General Information of FRD</a>
+            <div class="collapse show" id="collapse-1">
+                @Html.Partial("~/Views/PartialViews/Panel0/Info_Input.cshtml")
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" role="button" href="#collapse-2" style="min-width:100%;background-color:#175777;">Panel 1: Request Description</a>
+            <div class="colpse collapse" id="collapse-2">
+                @Html.Partial("~/Views/PartialViews/Panel1/Add_Items.cshtml")
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-3" role="button" href="#collapse-3" style="width:100%;background-color:#175777;">Panel 2: &nbsp;Target Audience</a>
+            <div class="colpse collapse" id="collapse-3" style="background-color:#f9f9f9;">
+                @Html.Partial("~/Views/PartialViews/Panel2/Targets_Editable.cshtml")
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" role="button" href="#collapse-4" style="width:100%;background-color:#175777;">Panel 3: Channels Affected by Demand&nbsp;</a>
+            <div class="colpse collapse" id="collapse-4" style="background-color:#f9f9f9;">
+                @Html.Partial("~/Views/PartialViews/Panel3/Channels_Editable.cshtml")
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" role="button" href="#collapse-5" style="width:100%;background-color:#175777;">Panel 4: SMS</a>
+            <div class="colpse collapse" id="collapse-5" style="margin-top:15px; max-height:none;">
+                @Html.Partial("~/Views/PartialViews/Panel4/Add_SMS.cshtml")
+            </div>
+            <div>
+                <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-6" role="button" href="#collapse-6" style="width:100%;background-color:#175777;">Panel 5: Upload files</a>
+                <div class="colpse collapse" id="collapse-6" style="background-color:#f9f9f9; overflow-y:hidden; height: 100%;">
+                    @Html.Partial("~/Views/PartialViews/Panel5/Upload_Files.cshtml")
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" role="button" href="#collapse-7" style="width:100%;background-color:#175777;">Panel 6:&nbsp;Prioritization</a>
+                <div class="colpse collapse" id="collapse-7" style="margin-bottom:10px;">
+                    @Html.Partial("~/Views/PartialViews/Panel6/Add_Discounts.cshtml")
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg text-left" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" role="button" href="#collapse-8" style="width:100%;background-color:#175777;">Panel 7: Confirmations</a>
+            <div class="colpse collapse" id="collapse-8">
+                @Html.Partial("~/Views/PartialViews/Panel7/D_G_Editable.cshtml")
+            </div>
+        </div>
+        <input id="FrdType" type="hidden" name="Type" value="@Model.Type">
+        <div class="container">
+            <div class="row justify-content-center" style="margin-top:20px;">
+                @Html.AntiForgeryToken()
+                @Html.Partial("~/Views/PartialViews/Buttons/Approve.cshtml")
+                @Html.Partial("~/Views/PartialViews/Buttons/Reject.cshtml")
+            </div>
+        </div>
+    }
+</div>
+
+@section styles1{
+    <link href="~/assets/css/checkMark.css" rel="stylesheet" />
+}
+
+@section scripts{
+    <script src="~/assets/js/General Form/Disable Enter.js"></script>
+    <script src="~/assets/js/Panel 0/FrdId.js"></script>
+    <script src="~/assets/js/Panel 1/Description.js"></script>
+    <script src="~/assets/js/Panel 6/Discount.js"></script>
+    <script src="~/assets/js/Panel 7/NestedCheckboxes.js"></script>
+    <script src="~/assets/js/General Form/Save Button.js"></script>
+    <script src="~/assets/js/General Form/Submit Button.js"></script>
+
+
+    <script src="~/assets/js/MyScript.js"></script>
+    <script src="~/assets/js/Vertical-menu.js"></script>
+    <script src="~/assets/js/React/dist/bundle.js"></script>
+    <script src="~/assets/js/panelsAnimations.js"></script>
+    <script src="~/assets/js/dist/dropzone.js"></script>
+
+}
+

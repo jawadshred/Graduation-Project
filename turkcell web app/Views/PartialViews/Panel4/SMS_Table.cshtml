@@ -1,0 +1,45 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div>
+    <div>
+        @{
+            if (Model.Panel4.SMS.Count == 0)
+            {
+                Html.RenderPartial("~/Views/PartialViews/EmptyPanel.cshtml", "No Included SMS" );
+            }
+            else
+            {
+                <div class="table-responsive table-bordered" style="margin-bottom:15px;">
+                    <table id="smsTable" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Sender</th>
+                                <th class="text-center">Code</th>
+                                <th class="text-center">Content (Turkish)</th>
+                                <th class="text-center">Content (English)</th>
+                                <th class="text-center">User</th>
+                                <th class="text-center">Date</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @for (int i = 0; i < Model.Panel4.SMS.Count; i++)
+                            {
+                                <tr>
+                                    <td style="width:10%;">@Model.Panel4.SMS[i].Sender</td>
+                                    <td style="width:10%;">@Model.Panel4.SMS[i].Code</td>
+                                    <td style="width:30%;">@Model.Panel4.SMS[i].TrContent</td>
+                                    <td style="width:30%;">@Model.Panel4.SMS[i].EnContent</td>
+                                    <td style="max-width:120px;width:10%;">@Model.Panel4.SMS[i].AddedBy.Name @Model.Panel4.SMS[i].AddedBy.Surname</td>
+                                    <td style="width:10%;max-width:120px;">@Model.Panel4.SMS[i].Time</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    </div>
+
+</div>

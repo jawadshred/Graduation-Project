@@ -1,0 +1,32 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div>
+    @{
+        if (Model.Panel6.DiscountItems.Count == 0)
+        {
+            Html.RenderPartial("~/Views/PartialViews/EmptyPanel.cshtml", "No Included Discounts");
+        }
+        else
+        {
+
+
+            <section id="prioritization-list-cont" class="_todo-list">
+                <ul class="list-group _to-do-list-group sortable">
+
+                    @for (int i = 0; i < Model.Panel6.DiscountItems.Count; i++)
+                    {
+                        <li class="list-group-item _task" style="margin-top:10px;">
+                            <div class="row">
+                                <div class="col align-self-center"><span class="_todo-text">Discount Name: @Model.Panel6.DiscountItems[i].DiscountName</span></div>
+                                <div class="col align-self-center"><span class="_todo-text">Discount Code: @Model.Panel6.DiscountItems[i].DiscountCode</span></div>
+                                <div class="col">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    }
+
+                </ul>
+            </section>
+        }
+    }
+</div>

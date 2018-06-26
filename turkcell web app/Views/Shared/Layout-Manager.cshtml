@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel='shortcut icon' type='image/x-icon' href='~/assets/img/icon.ico' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form.css">
+    <link rel="stylesheet" href="~/assets/css/simple-sidebar.css">
+    <link rel="stylesheet" href="~/assets/css/Drag--Drop-Upload-Form.css">
+    <link rel="stylesheet" href="~/assets/css/to-do-list.css">
+    <link rel="stylesheet" href="~/assets/css/hamburger.css">
+    <link rel="stylesheet" href="~/assets/css/validation.css" />
+    <link rel="stylesheet" href="~/assets/js/dist/dropzone.css" />
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    @RenderSection("styles1", false)
+
+
+</head>
+
+
+<body>
+    <header id="layout-page-header">
+        <div id="layout-img-container">
+            <div class="row no-gutters justify-content-between align-items-center">
+                <div class="col-8 col-sm-4 col-md-4 col-lg-3 col-xl-2 offset-xl-0 align-self-center" id="img-col-layout"><img src="~/assets/img/sprite-common.png" id="logo-layout-page"></div>
+                <div class="col-sm-5 col-md-5 col-lg-7 col-xl-7">
+                    <form class="my-layout-search-form">
+                        @using (Html.BeginForm("Search", "Request", FormMethod.Get))
+                        {
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" id="my-search-layout-pre"><i class="fa fa-search"></i></span></div><input class="form-control" type="text" placeholder="I am looking for.." id="my-layout-text-input-search">
+                                <div class="input-group-append"><button class="btn btn-dark" type="button" id="my-layout-srch-btn">Search </button></div>
+                            </div>
+                        }
+                    </form>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-2 col-xl-2 offset-xl-0" style="text-align:center;">
+                    <div class="btn-group" role="group" style="margin:auto;display:block;">
+                        <div class="dropdown btn-group" role="group">
+                            <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="notif-dropdown"><i class="fa fa-bell" id="noti-icon"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu"
+                                 id="noti-dropdown-menu">
+                                <h6 class="dropdown-header" role="presentation" id="noti-dropdown-header">Notifications:<a href="#" class="notif-viewall-top">View all<i class="fa fa-arrow-circle-o-right" style="margin-left:5px;"></i></a></h6>
+                                <div class="dropdown-divider" role="presentation" id="noti-dropdown-divider"></div>
+                                @foreach (var x in turkcell_web_app.Models.Session.Functions.getNotifications())
+                                {
+                                    if (x.Seen)
+                                    {
+                                        <a class="dropdown-item" role="presentation" href="@Url.Action("Check","Notifications",new {noti_id= @x.ID})" id="noti-dropdown-item">
+                                            <div>
+                                                <h4 id="notification-heading">@x.FrdTitle</h4>
+                                            </div>
+                                            <div>
+                                                <p class="text-truncate d-block" id="notification-main">@x.Content</p>
+                                                <p class="d-flex" id="notification-date">@x.NotiTime</p>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider" role="presentation"></div>
+                                    }
+                                    else
+                                    {
+                                        <a class="dropdown-item" role="presentation" href="@Url.Action("Check","Notifications",new {noti_id= @x.ID})" id="noti-dropdown-item" style="background:#95c3f066;">
+                                            <div>
+                                                <h4 id="notification-heading">@x.FrdTitle</h4>
+                                            </div>
+                                            <div>
+                                                <p class="text-truncate d-block" id="notification-main">@x.Content</p>
+                                                <p class="d-flex" id="notification-date">@x.NotiTime</p>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider" role="presentation"></div>
+                                    }
+                                }
+                                <div class="dropdown-divider" role="presentation"></div>
+                                <h6 class="dropdown-header" role="presentation" style="text-align:center;"><a href="#" class="notif-viewall-bot">View all<i class="fa fa-arrow-circle-o-right" style="margin-left:5px;"></i></a></h6>
+                            </div>
+                        </div>
+                        <div class="dropdown btn-group" role="group">
+                            <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="user-btn-dropdown"><i class="fa fa-user-circle-o" id="usr-btn-icon"></i></button>
+
+
+                            <div class="dropdown-menu dropdown-menu-right" role="menu"
+                                 id="usr-btn-dropdown-menu">
+                                <h6 class="dropdown-header" role="presentation" id="usr-btn-dropdown-header">Logged in user:</h6>
+                                <div class="dropdown-divider" role="presentation" id="usr-btn-dropdown-divider"></div>
+                                <div class="usr-dropdown-item" role="presentation" id="usr-dropdown-item">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-lg-3 align-self-center" id="user-icon-dropdownm"><i class="fa fa-user-o" id="user-icon-drbdwn"></i></div>
+                                            <div class="col-lg-9" id="info-panel-user">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <h4 class="text-left" id="username-heading">@turkcell_web_app.Models.Session.Functions.GetName()</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col align-self-center">
+                                                        <p class="text-left d-block" id="user-email-drbdwn">@turkcell_web_app.Models.Session.Functions.GetEmail()</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider" role="presentation"></div>
+                                <h6 class="dropdown-header" role="presentation" style="text-align:center;"><a href="~/Authentication/Logout" class="notif-viewall-bot">Logout<i class="fa fa-sign-out" style="margin-left:5px;"></i></a></h6>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="my-wrapper" class="menuDisplayed">
+        <div id="my-sidebar-wrapper">
+            <ul class="my-sidebar-nav">
+                <li id="my-sidebar-home-item"  class="@ViewBag.Home"><a href="@Url.Action("Index","Home")">Home<i id="my-sidebar-home-icon" class="fa fa-home"></i></a></li>
+                <li class="@ViewBag.New"><a href="@Url.Action("New", "Request")">Create New Request<i id="my-sidebar-new-icon" class="fa fa-pencil-square-o"></i></a></li>
+                <li class="@ViewBag.Active"><a href="@Url.Action("Active", "Request")">View Active Requests<i id="my-sidebar-active-icon" class="fa fa-folder-open-o"></i></a></li>
+                <li class="@ViewBag.Pending"><a href="@Url.Action("Pending", "Request")">View Pending Requests<i id="my-sidebar-pending-icon" class="fa fa-clock-o"></i></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#my-sidebar-closed-submenu"><span class="caret">View Closed Requests</span></a>
+                    <ul id="my-sidebar-closed-submenu" class="dropdown-menu @ViewBag.ClosedMenu" role="menu">
+                        <li id="my-sidebar-submenu-item" class="@ViewBag.ClosedAll"><a href="@Url.Action("Closed", "Request",new {op="all" })">All</a></li>
+                        <li id="my-sidebar-submenu-item" class="@ViewBag.ClosedMe"><a href="@Url.Action("Closed", "Request",new {op="me" })">My FRDs<i id="my-sidebar-me-icon" class="fa fa-user"></i></a></li>
+                        <li id="my-sidebar-submenu-item" class="@ViewBag.ClosedOthers"><a href="@Url.Action("Closed", "Request",new {op="other" })">Others' FRDs<i id="my-sidebar-others-icon" class="fa fa-users"></i></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#my-sidebar-received-submenu"><span class="caret">View Received Requests</span></a>
+                    <ul id="my-sidebar-received-submenu" class="dropdown-menu @ViewBag.ReceivedMenu" role="menu">
+                        <li id="my-sidebar-submenu-item" class="@ViewBag.ReceivedU"><a href="@Url.Action("ReceivedU", "Request")">Received as User<i style="text-indent:50px" class="fa fa-reply-all"></i></a></li>
+                        <li id="my-sidebar-submenu-item" class="@ViewBag.ReceivedM"><a href="@Url.Action("ReceivedM", "Request")">Received as Manager<i style="text-indent:20px" class="fa fa-check-square-o"></i></a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Manager Dashboard<i id="my-sidebar-dash-icon" class="fa fa-dashboard"></i></a></li>
+                <li><a href="@Url.Action("Logout", "Authentication")">logout<i class="fa fa-sign-out"></i></a></li>
+            </ul>
+        </div>
+        <div id="my-page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    <div class="col-sm-1 col-md-1 col-xl-1 align-self-start" id="my-sidebar-toggle-col"><button class="hamburger hamburger--collapse is-active" type="button" id="my-menu-toggle"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button></div>
+                    @*<div class="col-12 col-sm-10 col-md-10 col-xl-11" style="overflow-y:auto;"> @RenderBody()</div>*@
+
+                    <div class="col-12 col-sm-10 col-md-10 col-xl-11" style="overflow-y:auto;">
+                        <div class="row justify-content-end">
+                            <div class="col-lg-1"><a href="#"><i class="fa fa-question-circle my-faq-info-btn"></i></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="my-main-content">@RenderBody()</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<body style="background-color:rgb(241,247,252);">
+        <header class="row header" style="background-color:#0b1b31;width:100%;margin-right:0px;margin-left:0px;max-height:75px;height:75px;">
+            <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3 offset-xl-0 align-self-center"><img class="img-fluid" src="~/assets/img/logo transparent copy.png" style="height:65px;max-width:250px;"></div>
+            <div class="col-8 col-sm-6 col-md-6 col-lg-7 col-xl-7 offset-xl-0 align-self-center">
+                @using (Html.BeginForm("Search", "Request", FormMethod.Get))
+            {
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background-color:#ffd400;color:#184e8e;"><i class="fa fa-search"></i></span></div>
+                    <input name="input" class="form-control" id="autocomplete" type="text" placeholder="I am looking for..">
+                    <div class="input-group-append"><button class="btn btn-light" type="submit" style="background-color:#ffd400;color:#184e8e;">Search </button></div>
+                </div>
+        }
+            </div>
+            <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-xl-0 align-self-center">
+                <div class="btn-group" role="group">
+
+
+                    <div class="dropdown btn-group" role="group">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="notif-dropdown"><i class="fa fa-bell" id="noti-icon"></i></button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu" id="noti-dropdown-menu">
+                            <h6 class="dropdown-header" role="presentation" id="noti-dropdown-header">Notifications:<a href="~/Notifications/NotificationPage" class="notif-viewall-top">View all<i class="fa fa-arrow-circle-o-right" style="margin-left:5px;"></i></a></h6>
+                            <div class="dropdown-divider" role="presentation" id="noti-dropdown-divider"></div>
+                            @foreach (var x in turkcell_web_app.Models.Session.Functions.getNotifications())
+                        {
+                            if (x.Seen)
+                            {
+                                <a class="dropdown-item" role="presentation" href="~/Noti/@x.ID" id="noti-dropdown-item">
+                                    <div>
+                                        <h4 id="notification-heading">@x.FrdTitle</h4>
+                                    </div>
+                                    <div>
+                                        <p class="text-truncate d-block" id="notification-main">@x.Content</p>
+                                        <p class="d-flex" id="notification-date">@x.NotiTime</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider" role="presentation"></div>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item" role="presentation" href="~/Noti/@x.ID" id="noti-dropdown-item" style="background:#95c3f066;">
+                                <div>
+                                    <h4 id="notification-heading">@x.FrdTitle</h4>
+                                </div>
+                                <div>
+                                    <p class="text-truncate d-block" id="notification-main">@x.Content</p>
+                                    <p class="d-flex" id="notification-date">@x.NotiTime</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider" role="presentation"></div>
+                    }
+                }
+
+                            <h6 class="dropdown-header" role="presentation" style="text-align:center;"><a href="~/Notifications/NotificationPage" class="notif-viewall-bot">View all<i class="fa fa-arrow-circle-o-right" style="margin-left:5px;"></i></a></h6>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="dropdown btn-group" role="group">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="background-color:transparent;"><i class="fa fa-user-circle-o" style="color:#ffd400;"></i></button>*@
+    @*<div class="dropdown-menu"
+             role="menu" style="background-color:#f1f7fc;">
+            <a class="dropdown-item" role="presentation" href="#"><span>@turkcell_web_app.Models.Session.Functions.GetName()</span></a><a class="dropdown-item" role="presentation" href="#"><span>@turkcell_web_app.Models.Session.Functions.GetEmail()</span></a>
+
+
+
+            <span>
+                @Html.ActionLink("Logout", "Logout", "Authentication", null, new { @class = "dropdown-item", role = "presentation", })
+            </span>
+
+
+
+
+        </div>*@
+
+    @*<div class="dropdown-menu dropdown-menu-right" role="menu"
+                                     id="usr-btn-dropdown-menu">
+                                    <h6 class="dropdown-header" role="presentation" id="usr-btn-dropdown-header">Logged in user:</h6>
+                                    <div class="dropdown-divider" role="presentation" id="usr-btn-dropdown-divider"></div>
+                                    <div class="usr-dropdown-item" role="presentation" id="usr-dropdown-item">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-3 align-self-center" id="user-icon-dropdownm"><i class="fa fa-user-o" id="user-icon-drbdwn"></i></div>
+                                                <div class="col-lg-9" id="info-panel-user">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <h4 class="text-left" id="username-heading">@turkcell_web_app.Models.Session.Functions.GetName()</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col align-self-center">
+                                                            <p class="text-left d-block" id="user-email-drbdwn">@turkcell_web_app.Models.Session.Functions.GetEmail()</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-divider" role="presentation"></div>
+                                    <h6 class="dropdown-header" role="presentation" style="text-align:center;"><a href="~/Authentication/Logout" class="notif-viewall-bot">Logout<i class="fa fa-sign-out" style="margin-left:5px;"></i></a></h6>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="body-content" style="background-color:#ffffff;">
+                    <div class="row no-gutters toggled" id="wrapper">
+                        <div class="col-md-8 col-lg-1 col-xl-1" style="width:auto;background-color:transparent;">
+                            <div id="sidebar-wrapper" style="background-color:#0b1b31;">
+                                <ul class="sidebar-nav">
+                                    <li class="sidebar-brand"> @Html.ActionLink("Home", "Index", "Home")</li>
+                                    <li>@Html.ActionLink("New Request", "New", "Request")</li>
+                                    <li>@Html.ActionLink("Active Requests", "Active", "Request")</li>
+                                    <li>@Html.ActionLink("Closed Requests", "Closed", "Request")</li>
+                                    <li>@Html.ActionLink("Received Requests", "Received", "Request")</li>
+                                    <li>@Html.ActionLink("Logout", "Logout", "Authentication")</li>
+                                </ul>
+                            </div>
+
+                            <a href="#menu-toggle" id="menu-toggle" class="btn btn-secondary" style="background-color:#0b1b31;overflow-y:auto;height:100%;position:fixed;margin-left:-5px;z-index:950;border-radius:0;box-shadow:none;border-color:transparent;">
+                                <i class="fa fa-server" style="font-size:30px;
+        color:rgb(241,247,252);"></i>
+                            </a>
+                        </div>
+                        <div class="col-md-12 col-lg-11 col-xl-11">
+                            <div id="page-content-wrapper">
+                                <div class="col" id="use-me">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/script.min.js"></script>
+    <script src="~/assets/js/hamburger.js"></script>
+    <script src="~/assets/js/sidebar.js"></script>
+    @RenderSection("scripts", false)
+</body>
+
+
+
+
+</html>

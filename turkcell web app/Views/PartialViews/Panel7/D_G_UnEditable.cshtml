@@ -1,0 +1,43 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div>
+    <ul class="list-group">
+
+        @for (int i = 0; i < Model.Panel7.DistributionGroups.Count; i++)
+        {
+            <li class="list-group-item parent-checkbox">
+                <div class="form-check">
+                    @*<input disabled class="form-check-input option" type="checkbox" id="option-@i">*@
+                    <label class="form-check-label" for="formCheck-@i">
+                        @Model.Panel7.DistributionGroups.ElementAt(i).Name
+                    </label>
+                </div>
+                <ul style="list-style:none;">
+
+                    @for (int j = 0; j < Model.Panel7.DistributionGroups.ElementAt(i).Employess.Count; j++)
+                    {
+                        if (Model.Panel7.DistributionGroups[i].Employess[j].Selected == true)
+                        {
+                            <li>
+                                <div class="new-checkbox">
+                                    <input disabled checked="checked" value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">
+                                    <label class="form-check-label" for="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name @Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Surname</label>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <div class="new-checkbox">
+
+                               <input disabled value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i" />
+                               <label class="form-check-label" for="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name @Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Surname</label>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+            </li>
+        }
+    </ul>
+</div>

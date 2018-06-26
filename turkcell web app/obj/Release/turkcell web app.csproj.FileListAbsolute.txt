@@ -1,0 +1,41 @@
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\ApplicationInsights.config
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\turkcell web app.dll.config
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\turkcell web app.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\turkcell web app.pdb
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Antlr3.Runtime.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.Web.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.ApplicationInsights.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Newtonsoft.Json.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Helpers.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Mvc.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Optimization.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Razor.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.WebPages.Deployment.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.WebPages.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.WebPages.Razor.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\WebGrease.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Helpers.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Mvc.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Optimization.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.Razor.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.WebPages.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.WebPages.Deployment.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\System.Web.WebPages.Razor.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Antlr3.Runtime.pdb
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Newtonsoft.Json.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.ApplicationInsights.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\bin\Microsoft.AI.Web.xml
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\obj\Release\turkcell web app.csproj.CoreCompileInputs.cache
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\obj\Release\turkcell web app.dll
+C:\Users\MSI 1\Source\Repos\turkcell web app\turkcell web app\obj\Release\turkcell web app.pdb

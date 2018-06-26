@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form.css">
+    <link rel="stylesheet" href="~/assets/css/simple-sidebar.css">
+    <link rel="stylesheet" href="~/assets/css/Drag--Drop-Upload-Form.css">
+
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    <link rel="stylesheet" href="~/assets/css/to-do-list.css">
+    <link rel="stylesheet" href="~/assets/css/validation.css" />
+    <link rel="stylesheet" href="~/assets/js/dist/dropzone.css" />
+
+</head>
+@*<body>
+    <div class="row" style="background-color:#0b1b31;width:100%;margin-right:0px;margin-left:0px;">
+        <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3 align-self-center"><img src="~/assets/img/logo transparent copy.png" style="width:100%;"></div>
+        <div class="col-8 col-sm-6 col-md-6 col-lg-7 col-xl-7 align-self-center">
+            <form class="search-form">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background-color:#ffd400;color:#184e8e;"><i class="fa fa-search"></i></span></div><input class="form-control" type="text" placeholder="Document Number...">
+                    <div class="input-group-append"><button class="btn btn-light" type="button" style="background-color:#ffd400;color:#184e8e;">Access</button></div>
+                </div>
+            </form>
+        </div>
+        <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-xl-0 align-self-center">
+            <div class="btn-group" role="group"><button class="btn btn-primary btn-lg" type="button" style="background-color:#0b1b31;"><i class="fa fa-bell" style="color:#ffd400;"></i></button><button class="btn btn-primary btn-lg" type="button" style="background-color:#0b1b31;"><i class="fa fa-user-circle-o" style="color:#ffd400;"></i></button></div>
+        </div>
+    </div>
+
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper" style="height:100%;background-color:#0b1b31;max-height:100%;">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"> @Html.ActionLink("Home", "HomePage")</li>
+                <li>@Html.ActionLink("New Request", "CreateRequest")</li>
+                <li>@Html.ActionLink("Active Requests", "ActiveRequests")</a></li>
+                <li>@Html.ActionLink("Closed Requests", "ClosedRequests")</a></li>
+                <li>@Html.ActionLink("Received Requests", "ReceivedRequests")</a></li>
+                <li>@Html.ActionLink("Logout", "Login")</a></li>
+            </ul>
+        </div><a class="btn btn-link btn-lg" role="button" href="#menu-toggle" id="menu-toggle" style="background-color:#0b1b31;"><i class="fa fa-bars" style="color:#ffd400;"></i></a>
+        <div class="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col bottom" style="background-color:#0b1b31;">
+        <p class="text-center" id="Copyright" style="color:#ccdffa;">© 2018 Kuzey Kıbrıs Turkcell</p>
+    </div>
+*@
+
+<body style="background-color:rgb(241,247,252);">
+    
+                        @RenderBody()
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/script.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+
+
+
+
+</html>

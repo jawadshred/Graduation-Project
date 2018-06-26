@@ -1,0 +1,44 @@
+﻿@model turkcell_web_app.ViewModels.SuccessData
+
+@{
+    ViewBag.Title = Model.Heading;
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div>
+    <div class="row justify-content-center" style="margin-top:50px;">
+        <div class="col-lg-12 col-xl-12">
+            <h1>@Model.Heading</h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1" />
+                <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
+            </svg>
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-8 Success-Page-P" style="flex: auto;max-width:max-content;">
+
+            <p class="lead text-center" style="margin-bottom:2px;">@Model.PrimaryParagraph<br></p>
+            @if (turkcell_web_app.Models.Session.Functions.GetInfo().UserInfo.ManagerInfo.Id != "0000")
+            {
+
+            }
+                <p class="lead text-center" style="margin-bottom:40px;margin-top:1px;">@Model.SecondaryParagraph<br></p>
+            <p style="margin-top:10px;margin-bottom:40px;">@Model.LastParagraph</p><div class="link-container">
+                <a href="~/@Model.ButtonLink" class="more-link">@Model.ButtonText</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles1{
+    <link href="~/assets/css/SuccessPage.css" rel="stylesheet" />
+}
+

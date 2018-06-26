@@ -1,0 +1,60 @@
+﻿.unfold {
+    animation: unfolding 2s;
+    border-color: #ffffff;
+    border-width: 2px; /* this allows you to adjust the thickness */
+    border-style: solid;
+    overflow:hidden;
+}
+
+@keyframes unfolding{
+    from {
+        max-height: 0;
+        border-color: #ff5100;
+    }
+    to {
+        border-color: #ffffff;
+        max-height: 510px;
+    }
+}
+
+
+/*not implemented*/
+.fold {
+    animation: folding 4s;
+    overflow: hidden;
+}
+
+@keyframes folding {
+    from {
+        max-height: 510px;
+    }
+
+    to {
+        max-height: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+.new {
+    animation: new-item 4s;
+    border-color: #ffffff;
+    border-width: 2px; /* this allows you to adjust the thickness */
+    border-style: solid;
+}
+
+@keyframes new-item {
+    from {
+        border-color: #ff5100;
+    }
+
+    to {
+        border-color: #ffffff;
+    }
+}

@@ -1,0 +1,43 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div class="row no-gutters" style="background-color:#f9f9f9;">
+    <div class="col">
+        <section class="_app-container" style="margin:0px;padding:10px;">
+            <section class="_page-container">
+                <section class="_main-content">
+                    <section id="bs_todolist" class="_todo-list-container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <section class="_add-task-form">
+                                        <div id="task-main-controller">
+                                            <div class="form-group"><input class="form-control DescriptionText" type="text" placeholder="Add a description tag..." id="task-adder" maxlength="1024">   </div>
+                                            <div class="form-group" style="width:200px;"><button class="btn btn-success AddDescription" type="button" style="background-color:#005eb2;color:#ffd400;width:100%;display:inline">Add</button></div>
+                                        </div>
+                                    </section>
+                                    <section id="todolist-cont" class="_todo-list">
+                                        <ul class="list-group _to-do-list-group sortable" id="tags-list2">
+                                            @{
+                                                if (Model.Panel1 != null && Model.Type== turkcell_web_app.ViewModels.Frd.TypesEnum.Saved)
+                                                {
+                                                    for (int i = 0; i < Model.Panel1.Items.Count; i++)
+                                                    {
+                                                        <li class="list-group-item _task"><span class="_todo-text"> <input class="panel1checkboxes panel1-items" type="hidden" value="@Model.Panel1.Items[i].Content" />@Model.Panel1.Items[i].Content</span><div class="btn-group pull-right _task-controls" role="group"><button class="removeButtonDescription btn btn-light _todo-remove" type="button" data-task-control="remove"> <i class="fa fa-trash" style="font-size:24px"></i></button></div><div class="clearfix"></div></li>
+                                                    }
+
+
+
+                                                }
+
+
+                                            }
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </div>
+</div>

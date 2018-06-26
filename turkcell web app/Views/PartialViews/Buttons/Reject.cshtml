@@ -1,0 +1,51 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+
+
+
+@if (Model.Type != turkcell_web_app.ViewModels.Frd.TypesEnum.ReceivedUser)
+{
+    <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <button class="btn btn-danger btn-block btn-sm modal-button" type="button" id="btn-reject-2">
+            <i class="fa fa-close btn-label" style="margin-left:-18px;"></i>
+            <span class="text-monospace" style="margin-left:0px;font-size:20px;margin-right:-2px;">Reject</span>
+        </button>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal" style="overflow-y:hidden;">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <span style="margin:0 auto;">Would you like to add a note regarding the closure of this FRD? (optional)</span>
+
+            <div class="align-items-center">
+                <div class="col-md-10 col-lg-7 col-xl-6" id="add-note-popup-main" style="margin:3% auto">
+                    <p class="text-left">Notes:</p>
+                    <textarea style="height:100px;" name="VersionNotes" class="Reject_Explanation"></textarea>
+                </div>
+                <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-3" style="margin:0 auto;">
+                    <button class="btn btn-primary btn-block btn-sm" type="submit" id="man-reject">
+                        <i class="fa fa-close btn-label" style="margin-left:-18px;"></i>
+                        <span class="text-monospace" style="margin-left:0px;font-size:20px;margin-right:-2px;">Confirm Reject</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <button class="btn btn-primary btn-block btn-sm" type="submit" id="man-reject">
+            <i class="fa fa-close btn-label" style="margin-left:-18px;"></i>
+            <span class="text-monospace" style="margin-left:0px;font-size:20px;margin-right:-2px;">Reject</span>
+        </button>
+    </div>
+
+}
+
+
+
+
+

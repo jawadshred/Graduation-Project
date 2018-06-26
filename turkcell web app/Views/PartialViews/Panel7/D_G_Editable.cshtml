@@ -1,0 +1,42 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div>
+    <ul class="list-group">
+
+        @for (int i = 0; i < Model.Panel7.DistributionGroups.Count; i++)
+        {
+            <li class="list-group-item parent-checkbox">
+                <div class="form-check">
+                    <input class="form-check-input option panel7Parentcheckboxes" type="checkbox" id="option-@i" value="@Model.Panel7.DistributionGroups.ElementAt(i).Id">
+                    <input type="hidden" class="panel7ParentcheckboxesHidden" value="@Model.Panel7.DistributionGroups[i].Name" />
+                    <label class="form-check-label" for="option-@i">
+                        @Model.Panel7.DistributionGroups.ElementAt(i).Name
+                    </label>
+                </div>
+                <ul style="list-style:none;">
+
+                    @for (int j = 0; j < Model.Panel7.DistributionGroups.ElementAt(i).Employess.Count; j++)
+                    {
+
+                        if (Model.Panel7.DistributionGroups[i].Employess[j].Selected == true)
+                        {
+                            <li>
+                                <label class="mt-2"><input checked="checked" name="ConfirmationsEmployeesId" value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name @Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Surname <input type="hidden" /></label>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <label class="mt-2"><input name="ConfirmationsEmployeesId" value="@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Id" class="subOption panel7checkboxes" type="checkbox" id="formCheck-@i">@Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Name @Model.Panel7.DistributionGroups.ElementAt(i).Employess.ElementAt(j).Surname <input type="hidden" /></label>
+                            </li>
+                        }
+
+                    }
+
+                </ul>
+            </li>
+        }
+
+    </ul>
+
+
+</div>

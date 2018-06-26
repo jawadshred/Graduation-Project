@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FRD_DataSet" targetNamespace="http://tempuri.org/FRD_DataSet.xsd" xmlns:mstns="http://tempuri.org/FRD_DataSet.xsd" xmlns="http://tempuri.org/FRD_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionString.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FRD_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FRD_DataSet" msprop:Generator_UserDSName="FRD_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TEMP_FILES" msprop:Generator_TableClassName="TEMP_FILESDataTable" msprop:Generator_TableVarName="tableTEMP_FILES" msprop:Generator_TablePropName="TEMP_FILES" msprop:Generator_RowDeletingName="TEMP_FILESRowDeleting" msprop:Generator_RowChangingName="TEMP_FILESRowChanging" msprop:Generator_RowEvHandlerName="TEMP_FILESRowChangeEventHandler" msprop:Generator_RowDeletedName="TEMP_FILESRowDeleted" msprop:Generator_UserTableName="TEMP_FILES" msprop:Generator_RowChangedName="TEMP_FILESRowChanged" msprop:Generator_RowEvArgName="TEMP_FILESRowChangeEvent" msprop:Generator_RowClassName="TEMP_FILESRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FILE_NAME" msprop:Generator_ColumnVarNameInTable="columnFILE_NAME" msprop:Generator_ColumnPropNameInRow="FILE_NAME" msprop:Generator_ColumnPropNameInTable="FILE_NAMEColumn" msprop:Generator_UserColumnName="FILE_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UPLOAD_DATE" msprop:Generator_ColumnVarNameInTable="columnUPLOAD_DATE" msprop:Generator_ColumnPropNameInRow="UPLOAD_DATE" msprop:Generator_ColumnPropNameInTable="UPLOAD_DATEColumn" msprop:Generator_UserColumnName="UPLOAD_DATE" type="xs:dateTime" />
+              <xs:element name="EXTENSION" msprop:Generator_ColumnVarNameInTable="columnEXTENSION" msprop:Generator_ColumnPropNameInRow="EXTENSION" msprop:Generator_ColumnPropNameInTable="EXTENSIONColumn" msprop:Generator_UserColumnName="EXTENSION">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UPLOAD_TOKEN" msprop:Generator_ColumnVarNameInTable="columnUPLOAD_TOKEN" msprop:Generator_ColumnPropNameInRow="UPLOAD_TOKEN" msprop:Generator_ColumnPropNameInTable="UPLOAD_TOKENColumn" msprop:Generator_UserColumnName="UPLOAD_TOKEN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILE_SIZE" msprop:Generator_ColumnVarNameInTable="columnFILE_SIZE" msprop:Generator_ColumnPropNameInRow="FILE_SIZE" msprop:Generator_ColumnPropNameInTable="FILE_SIZEColumn" msprop:Generator_UserColumnName="FILE_SIZE" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_FILES" msprop:Generator_TableClassName="FRD_FILESDataTable" msprop:Generator_TableVarName="tableFRD_FILES" msprop:Generator_TablePropName="FRD_FILES" msprop:Generator_RowDeletingName="FRD_FILESRowDeleting" msprop:Generator_RowChangingName="FRD_FILESRowChanging" msprop:Generator_RowEvHandlerName="FRD_FILESRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_FILESRowDeleted" msprop:Generator_UserTableName="FRD_FILES" msprop:Generator_RowChangedName="FRD_FILESRowChanged" msprop:Generator_RowEvArgName="FRD_FILESRowChangeEvent" msprop:Generator_RowClassName="FRD_FILESRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FRD_ID" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="FRD_ID" msprop:Generator_ColumnVarNameInTable="columnFRD_ID" msprop:Generator_ColumnPropNameInTable="FRD_IDColumn" msprop:Generator_UserColumnName="FRD_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILE_NAME" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="FILE_NAME" msprop:Generator_ColumnVarNameInTable="columnFILE_NAME" msprop:Generator_ColumnPropNameInTable="FILE_NAMEColumn" msprop:Generator_UserColumnName="FILE_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+              <xs:element name="EXTENSION" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="EXTENSION" msprop:Generator_ColumnVarNameInTable="columnEXTENSION" msprop:Generator_ColumnPropNameInTable="EXTENSIONColumn" msprop:Generator_UserColumnName="EXTENSION" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_UPLOADED" msprop:Generator_ColumnVarNameInTable="columnTIME_UPLOADED" msprop:Generator_ColumnPropNameInRow="TIME_UPLOADED" msprop:Generator_ColumnPropNameInTable="TIME_UPLOADEDColumn" msprop:Generator_UserColumnName="TIME_UPLOADED" type="xs:dateTime" />
+              <xs:element name="OREGENAL_NAME" msprop:Generator_ColumnVarNameInTable="columnOREGENAL_NAME" msprop:Generator_ColumnPropNameInRow="OREGENAL_NAME" msprop:Generator_ColumnPropNameInTable="OREGENAL_NAMEColumn" msprop:Generator_UserColumnName="OREGENAL_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="FILE_SIZE" msprop:Generator_ColumnVarNameInTable="columnFILE_SIZE" msprop:Generator_ColumnPropNameInRow="FILE_SIZE" msprop:Generator_ColumnPropNameInTable="FILE_SIZEColumn" msprop:Generator_UserColumnName="FILE_SIZE" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UPLOAD_TOKENS" msprop:Generator_TableClassName="UPLOAD_TOKENSDataTable" msprop:Generator_TableVarName="tableUPLOAD_TOKENS" msprop:Generator_TablePropName="UPLOAD_TOKENS" msprop:Generator_RowDeletingName="UPLOAD_TOKENSRowDeleting" msprop:Generator_RowChangingName="UPLOAD_TOKENSRowChanging" msprop:Generator_RowEvHandlerName="UPLOAD_TOKENSRowChangeEventHandler" msprop:Generator_RowDeletedName="UPLOAD_TOKENSRowDeleted" msprop:Generator_UserTableName="UPLOAD_TOKENS" msprop:Generator_RowChangedName="UPLOAD_TOKENSRowChanged" msprop:Generator_RowEvArgName="UPLOAD_TOKENSRowChangeEvent" msprop:Generator_RowClassName="UPLOAD_TOKENSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TOKEN" msprop:Generator_ColumnVarNameInTable="columnTOKEN" msprop:Generator_ColumnPropNameInRow="TOKEN" msprop:Generator_ColumnPropNameInTable="TOKENColumn" msprop:Generator_UserColumnName="TOKEN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TYPE" msprop:Generator_ColumnVarNameInTable="columnTYPE" msprop:Generator_ColumnPropNameInRow="TYPE" msprop:Generator_ColumnPropNameInTable="TYPEColumn" msprop:Generator_UserColumnName="TYPE" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SAVEDFRD" msprop:Generator_TableClassName="SAVEDFRDDataTable" msprop:Generator_TableVarName="tableSAVEDFRD" msprop:Generator_RowChangedName="SAVEDFRDRowChanged" msprop:Generator_TablePropName="SAVEDFRD" msprop:Generator_RowDeletingName="SAVEDFRDRowDeleting" msprop:Generator_RowChangingName="SAVEDFRDRowChanging" msprop:Generator_RowEvHandlerName="SAVEDFRDRowChangeEventHandler" msprop:Generator_RowDeletedName="SAVEDFRDRowDeleted" msprop:Generator_RowClassName="SAVEDFRDRow" msprop:Generator_UserTableName="SAVEDFRD" msprop:Generator_RowEvArgName="SAVEDFRDRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JSON" msprop:Generator_ColumnVarNameInTable="columnJSON" msprop:Generator_ColumnPropNameInRow="JSON" msprop:Generator_ColumnPropNameInTable="JSONColumn" msprop:Generator_UserColumnName="JSON" type="xs:base64Binary" />
+              <xs:element name="SAVED_TIME" msprop:Generator_ColumnVarNameInTable="columnSAVED_TIME" msprop:Generator_ColumnPropNameInRow="SAVED_TIME" msprop:Generator_ColumnPropNameInTable="SAVED_TIMEColumn" msprop:Generator_UserColumnName="SAVED_TIME" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TempFiles" msprop:Generator_TableClassName="TempFilesDataTable" msprop:Generator_TableVarName="tableTempFiles" msprop:Generator_RowChangedName="TempFilesRowChanged" msprop:Generator_TablePropName="TempFiles" msprop:Generator_RowDeletingName="TempFilesRowDeleting" msprop:Generator_RowChangingName="TempFilesRowChanging" msprop:Generator_RowEvHandlerName="TempFilesRowChangeEventHandler" msprop:Generator_RowDeletedName="TempFilesRowDeleted" msprop:Generator_RowClassName="TempFilesRow" msprop:Generator_UserTableName="TempFiles" msprop:Generator_RowEvArgName="TempFilesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FILE_NAME" msprop:Generator_ColumnVarNameInTable="columnFILE_NAME" msprop:Generator_ColumnPropNameInRow="FILE_NAME" msprop:Generator_ColumnPropNameInTable="FILE_NAMEColumn" msprop:Generator_UserColumnName="FILE_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UPLOAD_DATE" msprop:Generator_ColumnVarNameInTable="columnUPLOAD_DATE" msprop:Generator_ColumnPropNameInRow="UPLOAD_DATE" msprop:Generator_ColumnPropNameInTable="UPLOAD_DATEColumn" msprop:Generator_UserColumnName="UPLOAD_DATE" type="xs:dateTime" />
+              <xs:element name="EXTENSION" msprop:Generator_ColumnVarNameInTable="columnEXTENSION" msprop:Generator_ColumnPropNameInRow="EXTENSION" msprop:Generator_ColumnPropNameInTable="EXTENSIONColumn" msprop:Generator_UserColumnName="EXTENSION">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UPLOAD_TOKEN" msprop:Generator_ColumnVarNameInTable="columnUPLOAD_TOKEN" msprop:Generator_ColumnPropNameInRow="UPLOAD_TOKEN" msprop:Generator_ColumnPropNameInTable="UPLOAD_TOKENColumn" msprop:Generator_UserColumnName="UPLOAD_TOKEN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OREGENAL_NAME" msprop:Generator_ColumnVarNameInTable="columnOREGENAL_NAME" msprop:Generator_ColumnPropNameInRow="OREGENAL_NAME" msprop:Generator_ColumnPropNameInTable="OREGENAL_NAMEColumn" msprop:Generator_UserColumnName="OREGENAL_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILE_SIZE" msprop:Generator_ColumnVarNameInTable="columnFILE_SIZE" msprop:Generator_ColumnPropNameInRow="FILE_SIZE" msprop:Generator_ColumnPropNameInTable="FILE_SIZEColumn" msprop:Generator_UserColumnName="FILE_SIZE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_Versions" msprop:Generator_TableClassName="FRD_VersionsDataTable" msprop:Generator_TableVarName="tableFRD_Versions" msprop:Generator_TablePropName="FRD_Versions" msprop:Generator_RowDeletingName="FRD_VersionsRowDeleting" msprop:Generator_RowChangingName="FRD_VersionsRowChanging" msprop:Generator_RowEvHandlerName="FRD_VersionsRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_VersionsRowDeleted" msprop:Generator_UserTableName="FRD_Versions" msprop:Generator_RowChangedName="FRD_VersionsRowChanged" msprop:Generator_RowEvArgName="FRD_VersionsRowChangeEvent" msprop:Generator_RowClassName="FRD_VersionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NAME" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="NOTE" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="NOTE" msprop:Generator_ColumnVarNameInTable="columnNOTE" msprop:Generator_ColumnPropNameInTable="NOTEColumn" msprop:Generator_UserColumnName="NOTE" type="xs:string" minOccurs="0" />
+              <xs:element name="DATE_CREATED" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="DATE_CREATED" msprop:Generator_ColumnVarNameInTable="columnDATE_CREATED" msprop:Generator_ColumnPropNameInTable="DATE_CREATEDColumn" msprop:Generator_UserColumnName="DATE_CREATED" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SURNAME" msprop:Generator_ColumnVarNameInTable="columnSURNAME" msprop:Generator_ColumnPropNameInRow="SURNAME" msprop:Generator_ColumnPropNameInTable="SURNAMEColumn" msprop:Generator_UserColumnName="SURNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="EXPLANATION" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="EXPLANATION" msprop:Generator_ColumnVarNameInTable="columnEXPLANATION" msprop:Generator_ColumnPropNameInTable="EXPLANATIONColumn" msprop:Generator_UserColumnName="EXPLANATION" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_ITEMS" msprop:Generator_TableClassName="FRD_ITEMSDataTable" msprop:Generator_TableVarName="tableFRD_ITEMS" msprop:Generator_TablePropName="FRD_ITEMS" msprop:Generator_RowDeletingName="FRD_ITEMSRowDeleting" msprop:Generator_RowChangingName="FRD_ITEMSRowChanging" msprop:Generator_RowEvHandlerName="FRD_ITEMSRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_ITEMSRowDeleted" msprop:Generator_UserTableName="FRD_ITEMS" msprop:Generator_RowChangedName="FRD_ITEMSRowChanged" msprop:Generator_RowEvArgName="FRD_ITEMSRowChangeEvent" msprop:Generator_RowClassName="FRD_ITEMSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ITEM_ID" msprop:Generator_ColumnVarNameInTable="columnITEM_ID" msprop:Generator_ColumnPropNameInRow="ITEM_ID" msprop:Generator_ColumnPropNameInTable="ITEM_IDColumn" msprop:Generator_UserColumnName="ITEM_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FRD_ID" msprop:Generator_ColumnVarNameInTable="columnFRD_ID" msprop:Generator_ColumnPropNameInRow="FRD_ID" msprop:Generator_ColumnPropNameInTable="FRD_IDColumn" msprop:Generator_UserColumnName="FRD_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ADDED_DATE" msprop:Generator_ColumnVarNameInTable="columnADDED_DATE" msprop:Generator_ColumnPropNameInRow="ADDED_DATE" msprop:Generator_ColumnPropNameInTable="ADDED_DATEColumn" msprop:Generator_UserColumnName="ADDED_DATE" type="xs:dateTime" />
+              <xs:element name="TEXT" msprop:Generator_ColumnVarNameInTable="columnTEXT" msprop:Generator_ColumnPropNameInRow="TEXT" msprop:Generator_ColumnPropNameInTable="TEXTColumn" msprop:Generator_UserColumnName="TEXT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1024" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ITEMS_COMMENTS" msprop:Generator_TableClassName="ITEMS_COMMENTSDataTable" msprop:Generator_TableVarName="tableITEMS_COMMENTS" msprop:Generator_TablePropName="ITEMS_COMMENTS" msprop:Generator_RowDeletingName="ITEMS_COMMENTSRowDeleting" msprop:Generator_RowChangingName="ITEMS_COMMENTSRowChanging" msprop:Generator_RowEvHandlerName="ITEMS_COMMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMS_COMMENTSRowDeleted" msprop:Generator_UserTableName="ITEMS_COMMENTS" msprop:Generator_RowChangedName="ITEMS_COMMENTSRowChanged" msprop:Generator_RowEvArgName="ITEMS_COMMENTSRowChangeEvent" msprop:Generator_RowClassName="ITEMS_COMMENTSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATE_CREATED" msprop:Generator_ColumnVarNameInTable="columnDATE_CREATED" msprop:Generator_ColumnPropNameInRow="DATE_CREATED" msprop:Generator_ColumnPropNameInTable="DATE_CREATEDColumn" msprop:Generator_UserColumnName="DATE_CREATED" type="xs:dateTime" />
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+              <xs:element name="NAME" msdata:Caption="USER_ID" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTENT" msprop:Generator_ColumnVarNameInTable="columnCONTENT" msprop:Generator_ColumnPropNameInRow="CONTENT" msprop:Generator_ColumnPropNameInTable="CONTENTColumn" msprop:Generator_UserColumnName="CONTENT" type="xs:string" minOccurs="0" />
+              <xs:element name="SURNAME" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="SURNAME" msprop:Generator_ColumnVarNameInTable="columnSURNAME" msprop:Generator_ColumnPropNameInTable="SURNAMEColumn" msprop:Generator_UserColumnName="SURNAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_TARGETS" msprop:Generator_TableClassName="FRD_TARGETSDataTable" msprop:Generator_TableVarName="tableFRD_TARGETS" msprop:Generator_RowChangedName="FRD_TARGETSRowChanged" msprop:Generator_TablePropName="FRD_TARGETS" msprop:Generator_RowDeletingName="FRD_TARGETSRowDeleting" msprop:Generator_RowChangingName="FRD_TARGETSRowChanging" msprop:Generator_RowEvHandlerName="FRD_TARGETSRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_TARGETSRowDeleted" msprop:Generator_RowClassName="FRD_TARGETSRow" msprop:Generator_UserTableName="FRD_TARGETS" msprop:Generator_RowEvArgName="FRD_TARGETSRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FRD_ID" msprop:Generator_ColumnVarNameInTable="columnFRD_ID" msprop:Generator_ColumnPropNameInRow="FRD_ID" msprop:Generator_ColumnPropNameInTable="FRD_IDColumn" msprop:Generator_UserColumnName="FRD_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TARGET" msprop:Generator_ColumnVarNameInTable="columnTARGET" msprop:Generator_ColumnPropNameInRow="TARGET" msprop:Generator_ColumnPropNameInTable="TARGETColumn" msprop:Generator_UserColumnName="TARGET">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+              <xs:element name="TARGET_CODE" msprop:Generator_ColumnVarNameInTable="columnTARGET_CODE" msprop:Generator_ColumnPropNameInRow="TARGET_CODE" msprop:Generator_ColumnPropNameInTable="TARGET_CODEColumn" msprop:Generator_UserColumnName="TARGET_CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_CHANNELS" msprop:Generator_TableClassName="FRD_CHANNELSDataTable" msprop:Generator_TableVarName="tableFRD_CHANNELS" msprop:Generator_RowChangedName="FRD_CHANNELSRowChanged" msprop:Generator_TablePropName="FRD_CHANNELS" msprop:Generator_RowDeletingName="FRD_CHANNELSRowDeleting" msprop:Generator_RowChangingName="FRD_CHANNELSRowChanging" msprop:Generator_RowEvHandlerName="FRD_CHANNELSRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_CHANNELSRowDeleted" msprop:Generator_RowClassName="FRD_CHANNELSRow" msprop:Generator_UserTableName="FRD_CHANNELS" msprop:Generator_RowEvArgName="FRD_CHANNELSRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FRD_ID" msprop:Generator_ColumnVarNameInTable="columnFRD_ID" msprop:Generator_ColumnPropNameInRow="FRD_ID" msprop:Generator_ColumnPropNameInTable="FRD_IDColumn" msprop:Generator_UserColumnName="FRD_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CHANNEL_CODE" msprop:Generator_ColumnVarNameInTable="columnCHANNEL_CODE" msprop:Generator_ColumnPropNameInRow="CHANNEL_CODE" msprop:Generator_ColumnPropNameInTable="CHANNEL_CODEColumn" msprop:Generator_UserColumnName="CHANNEL_CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+              <xs:element name="CHANNEL_NAME" msprop:Generator_ColumnVarNameInTable="columnCHANNEL_NAME" msprop:Generator_ColumnPropNameInRow="CHANNEL_NAME" msprop:Generator_ColumnPropNameInTable="CHANNEL_NAMEColumn" msprop:Generator_UserColumnName="CHANNEL_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_SMS" msprop:Generator_TableClassName="FRD_SMSDataTable" msprop:Generator_TableVarName="tableFRD_SMS" msprop:Generator_RowChangedName="FRD_SMSRowChanged" msprop:Generator_TablePropName="FRD_SMS" msprop:Generator_RowDeletingName="FRD_SMSRowDeleting" msprop:Generator_RowChangingName="FRD_SMSRowChanging" msprop:Generator_RowEvHandlerName="FRD_SMSRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_SMSRowDeleted" msprop:Generator_RowClassName="FRD_SMSRow" msprop:Generator_UserTableName="FRD_SMS" msprop:Generator_RowEvArgName="FRD_SMSRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SENDER" msprop:Generator_ColumnVarNameInTable="columnSENDER" msprop:Generator_ColumnPropNameInRow="SENDER" msprop:Generator_ColumnPropNameInTable="SENDERColumn" msprop:Generator_UserColumnName="SENDER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTENT_TR" msprop:Generator_ColumnVarNameInTable="columnCONTENT_TR" msprop:Generator_ColumnPropNameInRow="CONTENT_TR" msprop:Generator_ColumnPropNameInTable="CONTENT_TRColumn" msprop:Generator_UserColumnName="CONTENT_TR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTENT_EN" msprop:Generator_ColumnVarNameInTable="columnCONTENT_EN" msprop:Generator_ColumnPropNameInRow="CONTENT_EN" msprop:Generator_ColumnPropNameInTable="CONTENT_ENColumn" msprop:Generator_UserColumnName="CONTENT_EN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+              <xs:element name="DATE_ADDED" msprop:Generator_ColumnVarNameInTable="columnDATE_ADDED" msprop:Generator_ColumnPropNameInRow="DATE_ADDED" msprop:Generator_ColumnPropNameInTable="DATE_ADDEDColumn" msprop:Generator_UserColumnName="DATE_ADDED" type="xs:dateTime" />
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="SURNAME" msprop:Generator_ColumnVarNameInTable="columnSURNAME" msprop:Generator_ColumnPropNameInRow="SURNAME" msprop:Generator_ColumnPropNameInTable="SURNAMEColumn" msprop:Generator_UserColumnName="SURNAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRD_DISCOUNTS" msprop:Generator_TableClassName="FRD_DISCOUNTSDataTable" msprop:Generator_TableVarName="tableFRD_DISCOUNTS" msprop:Generator_RowChangedName="FRD_DISCOUNTSRowChanged" msprop:Generator_TablePropName="FRD_DISCOUNTS" msprop:Generator_RowDeletingName="FRD_DISCOUNTSRowDeleting" msprop:Generator_RowChangingName="FRD_DISCOUNTSRowChanging" msprop:Generator_RowEvHandlerName="FRD_DISCOUNTSRowChangeEventHandler" msprop:Generator_RowDeletedName="FRD_DISCOUNTSRowDeleted" msprop:Generator_RowClassName="FRD_DISCOUNTSRow" msprop:Generator_UserTableName="FRD_DISCOUNTS" msprop:Generator_RowEvArgName="FRD_DISCOUNTSRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VERSION" msprop:Generator_ColumnVarNameInTable="columnVERSION" msprop:Generator_ColumnPropNameInRow="VERSION" msprop:Generator_ColumnPropNameInTable="VERSIONColumn" msprop:Generator_UserColumnName="VERSION" type="xs:decimal" />
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SURNAME" msprop:Generator_ColumnVarNameInTable="columnSURNAME" msprop:Generator_ColumnPropNameInRow="SURNAME" msprop:Generator_ColumnPropNameInTable="SURNAMEColumn" msprop:Generator_UserColumnName="SURNAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FrdApprovals" msprop:Generator_TableClassName="FrdApprovalsDataTable" msprop:Generator_TableVarName="tableFrdApprovals" msprop:Generator_RowChangedName="FrdApprovalsRowChanged" msprop:Generator_TablePropName="FrdApprovals" msprop:Generator_RowDeletingName="FrdApprovalsRowDeleting" msprop:Generator_RowChangingName="FrdApprovalsRowChanging" msprop:Generator_RowEvHandlerName="FrdApprovalsRowChangeEventHandler" msprop:Generator_RowDeletedName="FrdApprovalsRowDeleted" msprop:Generator_RowClassName="FrdApprovalsRow" msprop:Generator_UserTableName="FrdApprovals" msprop:Generator_RowEvArgName="FrdApprovalsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GROUP_ID" msprop:Generator_ColumnVarNameInTable="columnGROUP_ID" msprop:Generator_ColumnPropNameInRow="GROUP_ID" msprop:Generator_ColumnPropNameInTable="GROUP_IDColumn" msprop:Generator_UserColumnName="GROUP_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="GROUP_NAME" msprop:Generator_ColumnVarNameInTable="columnGROUP_NAME" msprop:Generator_ColumnPropNameInRow="GROUP_NAME" msprop:Generator_ColumnPropNameInTable="GROUP_NAMEColumn" msprop:Generator_UserColumnName="GROUP_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="MEMBER_ID" msprop:Generator_ColumnVarNameInTable="columnMEMBER_ID" msprop:Generator_ColumnPropNameInRow="MEMBER_ID" msprop:Generator_ColumnPropNameInTable="MEMBER_IDColumn" msprop:Generator_UserColumnName="MEMBER_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="STATUS" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:string" minOccurs="0" />
+              <xs:element name="LAST_UPDATE" msprop:Generator_ColumnVarNameInTable="columnLAST_UPDATE" msprop:Generator_ColumnPropNameInRow="LAST_UPDATE" msprop:Generator_ColumnPropNameInTable="LAST_UPDATEColumn" msprop:Generator_UserColumnName="LAST_UPDATE" type="xs:dateTime" default="2011-01-11T13:11:11+02:00" minOccurs="0" />
+              <xs:element name="SURNAME" msprop:Generator_ColumnVarNameInTable="columnSURNAME" msprop:Generator_ColumnPropNameInRow="SURNAME" msprop:Generator_ColumnPropNameInTable="SURNAMEColumn" msprop:Generator_UserColumnName="SURNAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FrdItemsComments" msprop:Generator_TableClassName="FrdItemsCommentsDataTable" msprop:Generator_TableVarName="tableFrdItemsComments" msprop:Generator_TablePropName="FrdItemsComments" msprop:Generator_RowDeletingName="FrdItemsCommentsRowDeleting" msprop:Generator_RowChangingName="FrdItemsCommentsRowChanging" msprop:Generator_RowEvHandlerName="FrdItemsCommentsRowChangeEventHandler" msprop:Generator_RowDeletedName="FrdItemsCommentsRowDeleted" msprop:Generator_UserTableName="FrdItemsComments" msprop:Generator_RowChangedName="FrdItemsCommentsRowChanged" msprop:Generator_RowEvArgName="FrdItemsCommentsRowChangeEvent" msprop:Generator_RowClassName="FrdItemsCommentsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ITEM_ID" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="ITEM_ID" msprop:Generator_ColumnVarNameInTable="columnITEM_ID" msprop:Generator_ColumnPropNameInTable="ITEM_IDColumn" msprop:Generator_UserColumnName="ITEM_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_CONTENT" msprop:Generator_ColumnVarNameInTable="columnITEM_CONTENT" msprop:Generator_ColumnPropNameInRow="ITEM_CONTENT" msprop:Generator_ColumnPropNameInTable="ITEM_CONTENTColumn" msprop:Generator_UserColumnName="ITEM_CONTENT" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_VERSION" msprop:Generator_ColumnVarNameInTable="columnITEM_VERSION" msprop:Generator_ColumnPropNameInRow="ITEM_VERSION" msprop:Generator_ColumnPropNameInTable="ITEM_VERSIONColumn" msprop:Generator_UserColumnName="ITEM_VERSION" type="xs:int" minOccurs="0" />
+              <xs:element name="ITEM_DATE_ADDED" msprop:Generator_ColumnVarNameInTable="columnITEM_DATE_ADDED" msprop:Generator_ColumnPropNameInRow="ITEM_DATE_ADDED" msprop:Generator_ColumnPropNameInTable="ITEM_DATE_ADDEDColumn" msprop:Generator_UserColumnName="ITEM_DATE_ADDED" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="COMMENT_CONTENT" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="COMMENT_CONTENT" msprop:Generator_ColumnVarNameInTable="columnCOMMENT_CONTENT" msprop:Generator_ColumnPropNameInTable="COMMENT_CONTENTColumn" msprop:Generator_UserColumnName="COMMENT_CONTENT" type="xs:string" minOccurs="0" />
+              <xs:element name="COMMENT_DATE_ADDED" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="COMMENT_DATE_ADDED" msprop:Generator_ColumnVarNameInTable="columnCOMMENT_DATE_ADDED" msprop:Generator_ColumnPropNameInTable="COMMENT_DATE_ADDEDColumn" msprop:Generator_UserColumnName="COMMENT_DATE_ADDED" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="COMMENT_VERSION" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="COMMENT_VERSION" msprop:Generator_ColumnVarNameInTable="columnCOMMENT_VERSION" msprop:Generator_ColumnPropNameInTable="COMMENT_VERSIONColumn" msprop:Generator_UserColumnName="COMMENT_VERSION" type="xs:int" minOccurs="0" />
+              <xs:element name="NAME" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="SURNAME" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="SURNAME" msprop:Generator_ColumnVarNameInTable="columnSURNAME" msprop:Generator_ColumnPropNameInTable="SURNAMEColumn" msprop:Generator_UserColumnName="SURNAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:UPLOAD_TOKENS" />
+      <xs:field xpath="mstns:ID" />
+      <xs:field xpath="mstns:TYPE" />
+    </xs:unique>
+    <xs:unique name="SAVEDFRD_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SAVEDFRD" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="FRD_ITEMS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FRD_ITEMS" />
+      <xs:field xpath="mstns:ITEM_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

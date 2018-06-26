@@ -1,0 +1,94 @@
+﻿@model turkcell_web_app.ViewModels.DashBoard
+@{
+    ViewBag.Title = "Pending Requests";
+    ViewBag.ManagerDashBoard = "Selected-Item";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+<div class="container-fluid">
+    <div>
+        <header>
+            <p class="text-center" id="heading-home">Dashboard</p>
+        </header>
+    </div>
+    <div>
+        <p id="ma-dash-title">Employees:</p>
+    </div>
+    <div>
+        @for (int i = 0; i < Model.List.Count; i++)
+        {
+            <div class="btn btn-block my-man-dash-btn" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-@i" role="button" href="#collapse-@i">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-3 col-md-2 col-lg-2 col-xl-1 align-self-center">
+                        <p class="text-capitalize text-left" id="man-dash-id">ID:&nbsp;<span class="man-dash-id">XXXX</span></p>
+                    </div>
+                    <div class="col-sm-9 col-md-5 col-lg-4 col-xl-3 align-self-center">
+                        <p class="text-capitalize text-left" id="man-dash-name">Name Surname:&nbsp;<span class="man-dash-name">@Model.List[i].UserInfo.Name @Model.List[i].UserInfo.Surname</span></p>
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-5 col-xl-7 align-self-center">
+                        <p class="text-capitalize text-left" id="man-dash-mail"><i class="fa fa-angle-double-down pull-right" id="drp-dwn-icn-man"></i>E-Mail:&nbsp;<a href="@Model.List[i].UserInfo.E_Mail"><span class="text-lowercase" id="man-dash-email">@Model.List[i].UserInfo.E_Mail</span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div id="collapse-@i" class="collapse">
+                <div class="container" style="margin-bottom:25px;">
+                    <div class="row justify-content-center" id="info-home-row">
+                        <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                            <div class="card">
+                                <h4 id="active-frd-card-title"><i class="fa fa-folder-open-o" style="margin:5px;"></i>Active FRD's:</h4>
+                                <div class="card-body">
+                                    <div id="circle-content2" class="circle circle3">
+                                        <a href="#"><h2>@Model.List[i].ActiveFrd<p>FRD's</p></h2></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                            <div class="card">
+                                <h4 id="active-frd-card-title"><i class="fa fa-clock-o" style="margin:5px;"></i>Pending FRD's:</h4>
+                                <div class="card-body">
+                                    <div id="circle-content2" class="circle circle3">
+                                        <a href="#section_2"><h2>@Model.List[i].PendingFRDs<p>FRD's</p></h2></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                            <div class="card">
+                                <h4 id="active-frd-card-title"><i class="fa fa-times-circle-o" style="margin:5px;"></i>Closed FRD's:</h4>
+                                <div class="card-body">
+                                    <div id="circle-content2" class="circle circle3">
+                                        <a href=""><h2>@Model.List[i].ClosedFrd<p>FRD's</p></h2></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>     
+@*Url.Action("Active", "Request", new { UserID = @Model.List[i].UserInfo.Id })*@
+
+
+
+@section scripts{
+
+    <script src="~/assets/js/list-item.js"></script>
+
+    <script src="~/assets/js/Libraries/list.min.js"></script>
+    <script>
+        var options = {
+            valueNames: ['title', 'id', { attr: 'data-timestamp', name: 'created' }, { attr: 'data-timestamp', name: 'updated' }]
+        };
+
+        var userList = new List('users', options);
+    </script>
+
+}
+
+

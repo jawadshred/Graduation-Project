@@ -1,0 +1,83 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<div class="row no-gutters" style="margin-bottom:30px;margin-top:30px;background-color:#f9f9f9;">
+    <div class="col align-self-center">
+        @*list-group*@
+        <ul class="list-group _to-do-list-group sortable" id="task-list">
+            @{
+                for (int i = 0; i < Model.Panel1.Items.Count; i++)
+                {
+
+
+                    <li class="list-group-item _task" style="background-color:transparent;">
+                        <span class="_item-text">@Model.Panel1.Items[i].Content</span>
+                        <input type="hidden" value="@Model.Panel1.Items[i].ItemId" />
+                        <div class="clearfix">
+                            <div class="row no-gutters align-items-center">
+
+                                <div class="col-md-2 col-lg-1 offset-xl-0 align-self-center"><input class="form-control-plaintext" type="text" value="Version: @Model.Panel1.Items[i].VersionNo" readonly="" style="font-size:16px;color:#2fa2b5;"></div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 offset-xl-1 align-self-center" style="width:150px;"><input class="form-control-plaintext" type="text" value='Date: @Model.Panel1.Items[i].Date' readonly="" style="font-size:16px;color:#2fa2b5;letter-spacing:2px;width:250px;"></div>
+                                <div class="col-auto col-md-2 col-lg-2 col-xl-1 offset-md-4 offset-lg-4 offset-xl-3 align-self-center"><button class="btn btn-light btn-sm" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapse--@i" onclick="expandComments(@i)" role="button" href="#collapse--@i" style="font-size:16px;">Comments &nbsp;<i class="fa fa-angle-double-down" id="icon--@i" style="font-size:18px;"></i></button></div>
+                            </div>
+                            <div class="row justify-content-center" style="max-height:100%;">
+                                <div class="col-lg-8 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-0 collapse" id="collapse--@i" style="max-width:613px;">
+                                    <div class="card">
+                                        <div class="card-body" style="height:100%;">
+                                            <input type="hidden" value="@Model.Panel1.Items[i].ItemId" />
+                                            <ul class="list-group list-comments-@i">
+                                                @{
+
+                                                    if (Model.Panel1.Items[i].Comments.Count <= 0)
+                                                    {
+                                                        <li class="list-group-item" id="no-comments" style="margin-bottom:6px;">No Comments available</li>
+                                                    }
+                                                    else
+                                                    {
+
+                                                        for (int j = 0; j < Model.Panel1.Items[i].Comments.Count; j++)
+                                                        {
+                                                            <li class="list-group-item" style="margin-bottom:6px;">
+                                                                <div class="media">
+                                                                    <div></div>
+                                                                    <div class="media-body">
+                                                                        <div class="media" style="overflow:visible;">
+                                                                            <div style="margin-right:10px;"><i class="fa fa-user" style="font-size:16px;"></i></div>
+                                                                            <div class="media-body" style="overflow:visible;">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <p>
+                                                                                            <a href="#">@Model.Panel1.Items[i].Comments[j].Commentor.Name: </a>@Model.Panel1.Items[i].Comments[j].Content<br>
+                                                                                            <small class="text-muted">@Model.Panel1.Items[i].Comments[j].Date</small>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        }
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div class="row justify-content-center align-items-center" style="margin-bottom:10px;">
+                                            <div class="col-md-11 col-lg-11 col-xl-11 offset-lg-0 offset-xl-0">
+                                                <div class="input-group">
+                                                    <input class="form-control input-comment-@i" onkeyup='enterPressedComment(event,@i,"@Model.CurrentUser")' type="text" maxlength="256">
+                                                    <div class="input-group-append"><button onclick='addCommentPressed(@i,"@Model.CurrentUser")' class="btn btn-primary button-comment" id="@i" type="button" style="height:100%;color:#ffd400;background-color:#184e8e;">Comment</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+            }
+
+
+        </ul>
+    </div>
+</div>

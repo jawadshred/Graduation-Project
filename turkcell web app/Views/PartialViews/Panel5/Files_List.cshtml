@@ -1,0 +1,23 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+<ul class="list-group">
+    @if (Model.Panel5 != null)
+    {
+        if (Model.Panel5.Attatchments.Count == 0)
+        {
+            Html.RenderPartial("~/Views/PartialViews/EmptyPanel.cshtml", "No Files");
+        }
+        foreach (var x in Model.Panel5.Attatchments)
+        {
+            <li class="list-group-item" style="margin-top:10px;">
+                <h5 id="file_name">@x.Name</h5>
+                <div class="row justify-content-start">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 offset-lg-0"><span class="ulist_label1">Owner:&nbsp;</span><span id="u_owner">@x.Owner</span></div>
+                    <div class="col-7 col-sm-5 col-md-3 col-lg-3 col-xl-3" style="width:16.667%;"><span class="ulist_label1">Uploaded:</span><span id="u_date">@x.Date</span></div>
+                    <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 offset-md-0" style="width:16.667%;"><span class="ulist_label1">Version:</span><span id="u_version">@x.Version</span></div>
+                    <div class="col-5 col-sm-4 col-md-2 col-lg-2 col-xl-2" style="width:16.667%;"><span class="ulist_label1">Size:</span><span id="u_size">@x.Size</span></div>
+                    <div class="col-7 col-sm-5 col-md-2 col-lg-2 col-xl-2" style="width:16.667%;"><a class="btn btn-primary btn-sm" role="button" href="~/Download/@Model.Panel0.Id/@x.Id" style="background-color:#1c5775;max-width:100px;max-height:50px;width:75px;"><i class="fa fa-download" style="font-size:25px;color:#fed330;"></i></a></div>
+                </div>
+            </li>
+        }
+    }
+</ul>

@@ -1,0 +1,66 @@
+﻿@model turkcell_web_app.ViewModels.Frd
+
+<div style="background-color:#ccdffa;">
+    <div style="margin-top:30px;">
+        <div class="row no-gutters">
+            <div class="col-1 col-md-2 col-xl-1 align-self-center"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Version" readonly="" style="font-size:20px;"></div>
+            <div class="col-3 col-md-2 col-xl-2 offset-xl-0"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Date" readonly="" style="font-size:20px;"></div>
+            <div class="col-4 col-md-3 col-xl-3"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Editor" readonly="" style="font-size:20px;"></div>
+            <div class="col-5 col-md-5 col-xl-6"><input class="form-control-plaintext text-monospace lead text-center" type="text" value="Note" readonly="" style="font-size:20px;"></div>
+        </div>
+    </div>
+    <div>
+        <ul class="list-group sortable">
+            @{
+                /**/
+
+                for (int i = 0; i < Model.Panel0.Versions.Count; i++)
+                {
+
+                    if (Model.Panel0.Versions[i].Number == Model.Panel0.Versions[Model.Panel0.Versions.Count - 1].Number)
+                    {
+                        <li class="list-group-item">
+
+                            <div class="row justify-content-center align-items-center myBox">
+                                <div class="col-1 col-md-2 col-xl-1"><div class="form-control-plaintext text-center">V@(Model.Panel0.Versions[i].Number)</div></div>
+                                <div class="col-3 col-md-2 col-xl-2"><div class="form-control-plaintext text-center">@Model.Panel0.Versions[i].Date</div></div>
+                                <div class="col-3 col-md-3 col-xl-3"><div class="form-control-plaintext text-center">@Model.Panel0.Versions[i].ReviserInfo.Name @Model.Panel0.Versions[i].ReviserInfo.Surname</div></div>
+                                <div class="col-5 col-md-5 col-xl-6 align-self-center"><div class="form-control-plaintext text-center">@Model.Panel0.Versions[i].Details</div></div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <a href="~/ViewFrd/@Model.Panel0.Versions[i].Number/@Model.Panel0.Hashed_Id">
+                            <li class="list-group-item">
+
+                                <div class="row justify-content-center align-items-center myBox">
+                                    <div class="col-1 col-md-2 col-xl-1"><div class="form-control-plaintext text-center">V@(Model.Panel0.Versions[i].Number)</div></div>
+                                    <div class="col-3 col-md-2 col-xl-2"><div class="form-control-plaintext text-center">@Model.Panel0.Versions[i].Date</div></div>
+                                    <div class="col-3 col-md-3 col-xl-3"><div class="form-control-plaintext text-center">@Model.Panel0.Versions[i].ReviserInfo.Name @Model.Panel0.Versions[i].ReviserInfo.Surname</div></div>
+                                    <div class="col-5 col-md-5 col-xl-6 align-self-center"><div class="form-control-plaintext text-center">@Model.Panel0.Versions[i].Details</div></div>
+                                </div>
+
+                            </li>
+                        </a>
+                    }
+
+                }
+
+
+
+            }
+
+        </ul>
+    </div>
+
+    @if (Model.Type == turkcell_web_app.ViewModels.Frd.TypesEnum.Closed && Model.Panel0.Versions[Model.Panel0.Versions.Count - 1].Explanation != null)
+    {
+        <div class="row no-gutters align-items-center">
+            <div class="col-lg-6 offset-lg-3 align-items-center" style="padding:20px;">
+                <h4>Notes:</h4>
+                <textarea id="Reject_Explanation" rows="5" cols="50" readonly>@Model.Panel0.Versions[Model.Panel0.Versions.Count - 1].Explanation</textarea>
+            </div>
+        </div>
+    }
+</div>

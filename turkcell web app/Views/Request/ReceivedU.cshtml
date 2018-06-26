@@ -1,0 +1,93 @@
+﻿@using turkcell_web_app.Models
+@using turkcell_web_app.ViewModels
+@model FrdsList
+
+
+
+@{ ViewBag.Title = "Received Requests As User";
+    ViewBag.ReceivedU = "Selected-Item";
+    ViewBag.ReceivedMenu = "show";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="row">
+    <div class="col">
+        <h4 class="text-center" id="frd-lists-heading">Recieved FRD's</h4>
+    </div>
+</div>
+<div id="users">
+
+    <div class="row justify-content-center" id="frd-list-search">
+        <div class="col-11 col-sm-11 col-md-10 col-lg-9 col-xl-9 offset-md-0">
+            <form>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="dropdown btn-group" role="group">
+                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="filter-drpdwn-btn">Sort By </button>
+                            <div class="dropdown-menu dropdown-menu-left" role="menu" id="frd-list-filter-drpdwn">
+                                <a class="dropdown-item sort" data-sort="title" role="presentation" id="filter-drpdwn-item">Title</a>
+                                <a class="dropdown-item sort" data-sort="id" role="presentation" id="filter-drpdwn-item">ID</a>
+                                <a class="dropdown-item sort" data-sort="created" role="presentation" id="filter-drpdwn-item">date created</a>
+                                <a class="dropdown-item sort" data-sort="updated" role="presentation" id="filter-drpdwn-item">date updated</a>
+                                <a class="dropdown-item sort" data-sort="owner" role="presentation" id="filter-drpdwn-item">owner name</a>
+
+                            </div>
+                        </div><span class="input-group-text"><i class="fa fa-search"></i></span>
+                    </div><input class="form-control search" type="text" placeholder="Search using FRD name, ID, or owner name">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="list-group">
+        <ul class="list" id="special2">
+
+            @foreach (var frd in Model.List)
+            {
+                DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+                TimeSpan spanCreated = (frd.Created - epoch);
+                int unixTimeCreated = (int)spanCreated.TotalSeconds;
+
+                TimeSpan spanUpdated = (frd.LastUpdate - epoch);
+                int unixTimeUpdated = (int)spanUpdated.TotalSeconds;
+
+                <li id="special">
+
+
+                    <a class="list-group-item list-group-item-action frd-recieved-list-item" href="@Url.Action("ReceivedFrd","Request",new { Id =G_Functions.GetHash(frd.ID)})">
+                        <h5 class="frd_list_title title">@frd.Title</h5>
+                        <div class="row">
+                            <div class="col-4 col-md-3 col-lg-3 col-xl-4 offset-xl-0 align-self-center"><span class="frd_label">ID:&nbsp;</span><span id="id" class="id">@frd.ID</span></div>
+                            <div class="col-4 col-md-4 offset-md-0 offset-xl-0"><span class="frd_label" style="margin-right:15px;">Created:</span><span id="date" data-timestamp="@unixTimeCreated" class="created">@frd.Created</span></div>
+                            <div class="col-4 col-md-5 col-lg-5 col-xl-4 offset-xl-0"><span class="frd_label">Owner:</span><span id="owner" class="owner">@frd.Owner.Name @frd.Owner.Surname</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 col-md-3 col-lg-3 col-xl-4"><span class="frd_label">Version:</span><span id="version">@frd.Version</span></div>
+                            <div class="col-4 col-md-4 offset-md-0 offset-lg-0 offset-xl-0"><span class="frd_label">Updated:</span><span id="date" data-timestamp="@unixTimeUpdated" class="updated">@frd.LastUpdate</span></div>
+                            <div class="col-4 col-md-5 col-lg-5 col-xl-4 offset-lg-0 offset-xl-0">
+                                <span class="frd_label">Notifications:</span><span class="text-monospace badge"><span class="badge badge-pill badge-primary" style="background-color:#1c4fb4;font-size:14px;color:#fed330;">@frd.Notification</span></span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/assets/js/list-item.js"></script>
+
+
+    <script src="~/assets/js/Libraries/list.min.js"></script>
+    <script>
+        var options = {
+            valueNames: ['title', 'id', { attr: 'data-timestamp', name: 'created' }, { attr: 'data-timestamp', name: 'updated' }, 'owner']
+        };
+
+        var userList = new List('users', options);
+    </script>
+
+
+}

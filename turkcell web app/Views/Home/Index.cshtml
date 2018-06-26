@@ -1,0 +1,137 @@
+﻿@model turkcell_web_app.ViewModels.LogedInEmployee
+
+
+
+@{
+    ViewBag.Title = "Home Page - Welcome";
+    ViewBag.Home = "Selected-Item";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+<div class="dashboard-home-info">
+    <div>
+        <header>
+            <p class="text-center" id="heading-home">Dashboard</p>
+        </header>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+            <div class="card flex-grow-1">
+                <div class="container" id="user-info">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3 col-lg-3 align-self-center" align="center">
+                            <img src="~/assets/img/user_icon.jpg" class="profile-picture-info">
+                            <p id="home-id-num">ID: xxxx</p>
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9 offset-lg-0">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>@Model.UserInfo.Name @Model.UserInfo.Surname</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>@Model.UserInfo.E_Mail</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Department:</td>
+                                        <td>@Model.UserInfo.Department</td>
+                                    </tr>
+
+                                    <tr>
+                                    <tr>
+                                        <td>Manager:</td>
+                                        <td>@Model.UserInfo.ManagerInfo.Name @Model.UserInfo.ManagerInfo.Surname</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div></div>
+    <div>
+        <div class="container" style="margin-bottom:25px;">
+            <div class="row justify-content-center" id="info-home-row">
+                <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                    <div class="card MyCard">
+                        <h4 id="active-frd-card-title"><i class="fa fa-folder-open-o" style="margin:5px;"></i>Active FRD's:</h4>
+                        <div class="HomeCards card-body">
+                            <div id="circle-content2" class="circle circle3">
+                                <a href="~/Request/Active"><h2>@Model.ActiveFrd<p>FRD's</p></h2></a>
+                            </div>
+                            @if (Model.ActiveNoti)
+                            {
+                                <div class="align-content-end" id="noti-home-icon" style="text-align:right;"><a href="@Url.Action("NotificationPage","Notifications",new { op="A"})"> <i id="noti-home-icon" class="fa fa-exclamation-triangle" data-toggle="tooltip" title="New updates available!" data-placement="bottom"></i></a></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                    <div class="card MyCard">
+                        <h4 id="active-frd-card-title"><i class="fa fa-clock-o" style="margin:5px;"></i>Pending FRD's:</h4>
+                        <div class="HomeCards card-body">
+                            <div id="circle-content2" class="circle circle3">
+                                <a href="~/Request/Pending"><h2>@Model.PendingFRDs<p>FRD's</p></h2></a>
+                            </div>
+
+                            @*<div class="align-content-end" id="noti-home-icon" style="text-align:right;"><a href="link"> <i id="noti-home-icon" class="fa fa-exclamation-triangle" data-toggle="tooltip" title="New updates available!" data-placement="bottom"></i></a></div>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                    <div class="card MyCard">
+                        <h4 id="active-frd-card-title"><i class="fa fa-paper-plane-o" style="margin:5px;"></i>Recieved FRD's:</h4>
+                        <div class="HomeCards card-body">
+                            <div id="circle-content2" class="circle circle3">
+                                <a href="@Url.Action("ReceivedU","Request")"><h2>@Model.RecievedFrds<p>FRD's</p></h2></a>
+                            </div>
+                            @if (Model.ReceivedNoti)
+                            {
+                                <div class="align-content-end" id="noti-home-icon" style="text-align:right;"><a href="@Url.Action("NotificationPage","Notifications",new { op="R"})"> <i id="noti-home-icon" class="fa fa-exclamation-triangle" data-toggle="tooltip" title="New updates available!" data-placement="bottom"></i></a></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @if (turkcell_web_app.Models.Session.Functions.IsManager())
+                {
+                <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                    <div class="card MyCard">
+                        <h4 id="active-frd-card-title"><i class="fa fa-paper-plane-o" style="margin:5px;"></i>Manager Recieved:</h4>
+                        <div class="HomeCards card-body">
+                            <div id="circle-content2" class="circle circle3">
+                                <a href="@Url.Action("ReceivedM", "Request")"><h2>@Model.ManagerReceivedFRDs<p>FRD's</p></h2></a>
+                            </div>
+                            @if (Model.ReceivedNoti)
+                            {
+                                <div class="align-content-end" id="noti-home-icon" style="text-align:right;"><a href="@Url.Action("NotificationPage","Notifications",new { op="R"})"> <i id="noti-home-icon" class="fa fa-exclamation-triangle" data-toggle="tooltip" title="New updates available!" data-placement="bottom"></i></a></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                }
+                <div class="col-sm-4 col-md-3 col-lg-3" id="home-active-frd">
+                    <div class="card MyCard">
+                        <h4 id="active-frd-card-title"><i class="fa fa-times-circle-o" style="margin:5px;"></i>Closed FRD's:</h4>
+                        <div class="HomeCards card-body">
+                            <div id="circle-content2" class="circle circle3">
+                                <a href="~/Request/Closed?op=all"><h2>@Model.ClosedFrd<p>FRD's</p></h2></a>
+                            </div>
+                            @if (Model.ClosedNoti)
+                            {
+                                <div class="align-content-end" id="noti-home-icon" style="text-align:right;"><a href="@Url.Action("NotificationPage","Notifications",new { op="C"})"> <i id="noti-home-icon" class="fa fa-exclamation-triangle" data-toggle="tooltip" title="New updates available!" data-placement="bottom"></i></a></div>
+                            }
+                            @{var a = 5;}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
