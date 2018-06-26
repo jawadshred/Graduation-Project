@@ -1,7 +1,7 @@
 # Graduation-Project
 Change Request Management Web Application for Turkcell
 
-The Change Request Management is a well-designed and well-managed Web Service based application designed to be used by the employees of the KKTCell telecommunication services operator in Cyprus that can really make a difference by managing the continuous and many requests of their employees, aiming to improve the business services of the Company.
+The Change Request Management is a Web Service based application designed to be used by the employees of the KKTCell telecommunication services operator in Cyprus that can really make a difference by managing the continuous and many requests of their employees, aiming to improve the business services of the Company.
 
 Technologies used:
 
@@ -9,7 +9,7 @@ HTML |	Visual Studio IDE |	JQuery | CSS |	ASP.NET RESTful Web API |	React | Java
 
 Team:
 
-Talal Mahdy
+Talal Mahdy: https://github.com/talalmahdy
 
 Mohamed Balto: https://github.com/BaltuNoblesse
 
