@@ -37,7 +37,7 @@ namespace turkcell_web_app.Controllers
                 UserInfo = user.UserInfo
             };
 
-            //what do we need api result we inherited for?
+           
             ViewBag.helpMessage = "This Homepage contains your dashboard with general information providing" +
                 " an overview of your data & information.\n" +
                 "In addition, an up to date number of the FRDs available in each list is shown.";

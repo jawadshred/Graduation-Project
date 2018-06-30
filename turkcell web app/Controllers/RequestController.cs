@@ -62,7 +62,7 @@ namespace turkcell_web_app.Controllers
 
 
 
-            // NEED TO CHECK WITH BALTO: DO WE NEED ID?
+            
             var senders = DB_Functions.DefaultSmsSenders();
 
 
@@ -129,7 +129,7 @@ namespace turkcell_web_app.Controllers
                         return View("Success", viewModel);
 
                     }
-                    else //when do we actually enter this case?
+                    else
                     {
                         submittedFrd.Type = Frd.TypesEnum.Saved;
                         return RedirectToAction("New", SavedFrdHandling.ProcessInfo(submittedFrd));
@@ -483,7 +483,7 @@ namespace turkcell_web_app.Controllers
                 return RedirectToAction("Received");
             }
             Frd viewModel = ActiveFrdProcessor.Process(File);
-            //viewModel.Type = Frd.TypesEnum.ReceivedManager; //YOU HAVE TO DO THIS LINE YOURSELF BALTO BEK!!
+            //viewModel.Type = Frd.TypesEnum.ReceivedManager; 
 
 
 
@@ -513,7 +513,7 @@ namespace turkcell_web_app.Controllers
             {
                 //reject, frd id is given back
                 case Frd.ButtonsEnum.Reject:
-                    if (document.Type == Frd.TypesEnum.ReceivedManagerPending) //if its manager i think?
+                    if (document.Type == Frd.TypesEnum.ReceivedManagerPending) 
                     {
 
                         if (DB_Functions.ManagerReject(document.Panel0.Id, document.VersionNotes))
@@ -531,15 +531,11 @@ namespace turkcell_web_app.Controllers
 
                             return View("Success", viewModel);
                         }
-                        else//if failed 
-                        {//add your code here jawad
-
-
-                        }
+           
                     }
                     else //if its others
                     {
-                        if (DB_Functions.User_Reject(document.Panel0.Id)) // add your function here balto bek!
+                        if (DB_Functions.User_Reject(document.Panel0.Id)) 
                         {
                             viewModel = new SuccessData()
                             {
@@ -640,7 +636,7 @@ namespace turkcell_web_app.Controllers
                     break;
             }
 
-            //what do we put here?
+          
             return null;
         }
 
